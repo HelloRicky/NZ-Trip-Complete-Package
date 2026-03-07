@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Zealand South Island Trip Map - April 2026</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        #map-container {
+            display: flex;
+            height: 100vh;
+        }
+        #map {
+            flex: 1;
+            background: #e8f4f8;
+            position: relative;
+            overflow: hidden;
+        }
+        #sidebar {
+            width: 320px;
+            background: white;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        #sidebar h2 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .day-section {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .day-section:hover {
+            background: #e9ecef;
+            transform: translateX(3px);
+        }
+        .day-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        .day-location {
+            font-size: 13px;
+            color: #333;
+            margin: 3px 0;
+        }
+        .day-activities {
+            font-size: 11px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            max-width: 280px;
+            z-index: 1000;
+        }
+        .info-panel h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .info-panel p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #666;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        .location-marker {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .location-marker:hover circle {
+            r: 12;
+            opacity: 0.9;
+        }
+        .route-line {
+            fill: none;
+            stroke: #e74c3c;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+            opacity: 0.6;
+        }
+        .day-label {
+            font-size: 12px;
+            font-weight: bold;
+            fill: white;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+        .location-label {
+            font-size: 11px;
+            font-weight: bold;
+            fill: #333;
+            pointer-events: none;
+        }
+        .tooltip {
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 12px;
+            pointer-events: none;
+            display: none;
+            z-index: 2000;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <div id="map">
+            <div class="info-panel">
+                <h2>🇳🇿 NZ South Island Trip</h2>
+                <p><strong>April 11-20, 2026</strong></p>
+                <p>👥 7 travelers</p>
+                <p>🚐 JUCY Big Kahuna Campervan</p>
+                <p>📍 Click on day numbers or locations for details</p>
+            </div>
+            <svg viewBox="0 0 1000 1200" preserveAspectRatio="xMidYMid meet">
+                <!-- Route lines -->
+                <path class="route-line" d="M 500,600 L 500,300 M 500,600 L 400,750 L 300,900 M 500,600 L 500,850 M 500,850 L 400,1000 M 400,1000 L 500,600" />
+
+                <!-- Day 1 & Base 1: Christchurch -->
+                <g class="location-marker" data-day="1" onclick="showLocation('christchurch1')">
+                    <circle cx="500" cy="600" r="10" fill="#e74c3c" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="500" y="605">1</text>
+                </g>
+                <text class="location-label" x="500" y="580">Christchurch 基督城</text>
+                <text class="location-label" x="500" y="625" style="font-size:10px; fill:#666;">Base 1 (3 nights)</text>
+
+                <!-- Day 2: Kaikoura -->
+                <g class="location-marker" data-day="2" onclick="showLocation('kaikoura')">
+                    <circle cx="500" cy="300" r="10" fill="#f39c12" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="500" y="305">2</text>
+                </g>
+                <text class="location-label" x="500" y="280">Kaikoura 凯库拉</text>
+                <text class="location-label" x="500" y="325" style="font-size:10px; fill:#666;">🐋 Day Trip</text>
+
+                <!-- Day 3: Lake Tekapo -->
+                <g class="location-marker" data-day="3a" onclick="showLocation('tekapo')">
+                    <circle cx="400" cy="750" r="10" fill="#f39c12" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="400" y="755">3</text>
+                </g>
+                <text class="location-label" x="400" y="730">Tekapo 蒂卡波</text>
+
+                <!-- Day 3: Mt Cook -->
+                <g class="location-marker" data-day="3b" onclick="showLocation('mtcook')">
+                    <circle cx="300" cy="900" r="10" fill="#f39c12" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="300" y="905">3</text>
+                </g>
+                <text class="location-label" x="300" y="880">Mt Cook 库克山</text>
+
+                <!-- Day 4-6 & Base 2: Queenstown -->
+                <g class="location-marker" data-day="4" onclick="showLocation('queenstown')">
+                    <circle cx="500" cy="850" r="10" fill="#e74c3c" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="500" y="855">4-6</text>
+                </g>
+                <text class="location-label" x="500" y="830">Queenstown 皇后镇</text>
+                <text class="location-label" x="500" y="875" style="font-size:10px; fill:#666;">Base 2 (3 nights)</text>
+
+                <!-- Day 6: Glenorchy -->
+                <g class="location-marker" data-day="6" onclick="showLocation('glenorchy')">
+                    <circle cx="400" cy="1000" r="10" fill="#f39c12" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="400" y="1005">6</text>
+                </g>
+                <text class="location-label" x="400" y="980">Glenorchy 格林诺奇</text>
+
+                <!-- Day 7: Wanaka -->
+                <g class="location-marker" data-day="7" onclick="showLocation('wanaka')">
+                    <circle cx="550" cy="950" r="10" fill="#f39c12" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="550" y="955">7</text>
+                </g>
+                <text class="location-label" x="550" y="930">Wanaka 瓦纳卡</text>
+
+                <!-- Day 7-9 & Base 3: Christchurch -->
+                <g class="location-marker" data-day="7-9" onclick="showLocation('christchurch3')">
+                    <circle cx="650" cy="600" r="10" fill="#e74c3c" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="650" y="605">7-9</text>
+                </g>
+                <text class="location-label" x="650" y="580">Christchurch 基督城</text>
+                <text class="location-label" x="650" y="625" style="font-size:10px; fill:#666;">Base 3 (2 nights)</text>
+
+                <!-- Day 10: Akaroa -->
+                <g class="location-marker" data-day="10" onclick="showLocation('akaroa')">
+                    <circle cx="700" cy="700" r="10" fill="#3498db" stroke="white" stroke-width="2"/>
+                    <text class="day-label" x="700" y="705">10</text>
+                </g>
+                <text class="location-label" x="700" y="680">Akaroa 阿卡罗阿</text>
+                <text class="location-label" x="700" y="725" style="font-size:10px; fill:#666;">Chris family only</text>
+            </svg>
+        </div>
+
+        <div id="sidebar">
+            <h2>📅 Daily Itinerary</h2>
+
+            <div class="day-section" onclick="showLocation('christchurch1')">
+                <div class="day-title">DAY 1 - Friday, April 11</div>
+                <div class="day-location">📍 Christchurch (Arrival)</div>
+                <div class="day-activities">
+                    ✈️ Arrive 12:55 PM (EK412)<br>
+                    🚐 Pick up campervan 1:00 PM<br>
+                    🌳 Botanic Gardens<br>
+                    🎪 Margaret Mahy Playground
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('kaikoura')">
+                <div class="day-title">DAY 2 - Saturday, April 12</div>
+                <div class="day-location">📍 Kaikoura Day Trip</div>
+                <div class="day-activities">
+                    🌲 EcoZip Adventures<br>
+                    🛶 Seal Kayaking<br>
+                    🦭 Point Kean Seal Colony
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('tekapo')">
+                <div class="day-title">DAY 3 - Sunday, April 13</div>
+                <div class="day-location">📍 Lake Tekapo & Mt Cook</div>
+                <div class="day-activities">
+                    ⛪ Church of Good Shepherd<br>
+                    🥾 Hooker Valley Track<br>
+                    📷 Lake Pukaki Viewpoint
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('queenstown')">
+                <div class="day-title">DAY 4 - Monday, April 14</div>
+                <div class="day-location">📍 Travel to Queenstown</div>
+                <div class="day-activities">
+                    🚗 Scenic drive (6 hours)<br>
+                    🌊 Queenstown waterfront walk
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('queenstown')">
+                <div class="day-title">DAY 5 - Tuesday, April 15</div>
+                <div class="day-location">📍 Queenstown Adventures</div>
+                <div class="day-activities">
+                    🚡 Skyline Gondola & Luge<br>
+                    🪂 Skydiving (optional)<br>
+                    🚤 Jet Boat (alternative)
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('glenorchy')">
+                <div class="day-title">DAY 6 - Wednesday, April 16</div>
+                <div class="day-location">📍 Glenorchy & Paradise</div>
+                <div class="day-activities">
+                    🌲 Scenic drive<br>
+                    🎬 LOTR filming locations<br>
+                    🥝 Kiwi Birdlife Park (optional)
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('wanaka')">
+                <div class="day-title">DAY 7 - Thursday, April 17</div>
+                <div class="day-location">📍 Wanaka → Christchurch</div>
+                <div class="day-activities">
+                    🧩 Puzzling World<br>
+                    📷 That Wanaka Tree<br>
+                    🚗 Drive to Christchurch
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('christchurch3')">
+                <div class="day-title">DAY 8 - Friday, April 18</div>
+                <div class="day-location">📍 Christchurch Exploration</div>
+                <div class="day-activities">
+                    🏛️ Canterbury Museum<br>
+                    🚋 Christchurch Tram (optional)<br>
+                    🍽️ Farewell dinner
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('christchurch3')">
+                <div class="day-title">DAY 9 - Saturday, April 19</div>
+                <div class="day-location">📍 Rose Family Departure</div>
+                <div class="day-activities">
+                    🎨 Arts Centre Markets<br>
+                    ✈️ Depart 5:45 PM (EK413)<br>
+                    🚐 Return campervan 4:00 PM
+                </div>
+            </div>
+
+            <div class="day-section" onclick="showLocation('akaroa')">
+                <div class="day-title">DAY 10 - Sunday, April 20</div>
+                <div class="day-location">📍 Akaroa (Chris family)</div>
+                <div class="day-activities">
+                    🐬 Harbour Cruise<br>
+                    🇫🇷 French village<br>
+                    ✈️ Chris family departs 7:00 PM
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        function showLocation(locationId) {
+            const details = {
+                'christchurch1': {
+                    title: 'Day 1: Christchurch Arrival',
+                    content: 'Arrive 12:55 PM via EK412<br>Pick up JUCY campervan at 1:00 PM<br>Visit Botanic Gardens & Margaret Mahy Playground'
+                },
+                'kaikoura': {
+                    title: 'Day 2: Kaikoura Day Trip',
+                    content: '2.5 hours drive each way<br>EcoZip Adventures (zipline)<br>Seal Kayaking<br>Point Kean Seal Colony'
+                },
+                'tekapo': {
+                    title: 'Day 3: Lake Tekapo & Mt Cook',
+                    content: 'Church of Good Shepherd<br>Hooker Valley Track hike<br>Lake Pukaki viewpoint<br>Very long day (~14 hours)'
+                },
+                'mtcook': {
+                    title: 'Day 3: Mt Cook',
+                    content: 'Hooker Valley Track<br>Stunning glacial views<br>Part of Day 3 long loop'
+                },
+                'queenstown': {
+                    title: 'Days 4-6: Queenstown Base',
+                    content: 'Day 4: Travel day, waterfront walk<br>Day 5: Skyline Gondola, Luge, Skydiving<br>Day 6: Base for Glenorchy trip'
+                },
+                'glenorchy': {
+                    title: 'Day 6: Glenorchy & Paradise',
+                    content: 'One of world\'s most scenic drives<br>Lord of the Rings filming locations<br>Beech forest walks'
+                },
+                'wanaka': {
+                    title: 'Day 7: Wanaka',
+                    content: 'Puzzling World<br>That Wanaka Tree photo spot<br>En route back to Christchurch'
+                },
+                'christchurch3': {
+                    title: 'Days 7-9: Christchurch Return',
+                    content: 'Day 7 evening: Arrive from Wanaka<br>Day 8: Museums, city exploration<br>Day 9: Rose family departs 5:45 PM'
+                },
+                'akaroa': {
+                    title: 'Day 10: Akaroa (Chris family only)',
+                    content: 'Harbour cruise to see Hector\'s dolphins<br>Charming French village<br>Chris family departs 7:00 PM'
+                }
+            };
+
+            const info = details[locationId];
+            if (info) {
+                alert(info.title + '\n\n' + info.content.replace(/<br>/g, '\n'));
+            }
+        }
+
+        // Add hover effects
+        document.querySelectorAll('.location-marker').forEach(marker => {
+            marker.addEventListener('mouseenter', function(e) {
+                this.querySelector('circle').setAttribute('r', '12');
+            });
+            marker.addEventListener('mouseleave', function(e) {
+                this.querySelector('circle').setAttribute('r', '10');
+            });
+        });
+    </script>
+</body>
+</html>
