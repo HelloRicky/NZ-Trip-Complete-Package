@@ -20,11 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install next-on-pages
-        run: npm install -D @cloudflare/next-on-pages
-
-      - name: Build with next-on-pages
-        run: npx @cloudflare/next-on-pages
+      - name: Build (static export)
+        run: npm run build
         env:
           NODE_ENV: production
 
@@ -32,12 +29,10 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy .vercel/output/static --project-name=nz-trip-complete
+          command: pages deploy out --project-name=nz-trip-complete
 
       - name: Notify Discord
         if: always()
-        env:
-          PROJECT_NAME: nz-trip-complete
         run: |
           STATUS="${{ job.status }}"
           if [ "$STATUS" = "success" ]; then
