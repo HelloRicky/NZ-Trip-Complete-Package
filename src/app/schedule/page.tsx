@@ -113,7 +113,7 @@ export default function SchedulePage() {
       {/* Two-column layout */}
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Left: Day cards (scrollable on desktop) */}
-        <div className="flex-1 space-y-3 lg:overflow-y-auto lg:max-h-[calc(100vh-220px)] lg:pr-1">
+        <div className="flex-1 space-y-3 lg:overflow-y-auto lg:max-h-[calc(100vh-220px)] lg:pr-1 order-2 lg:order-1">
           {ITINERARY.map((day) => {
             const isOpen = openDays.has(day.day);
             const segment = getSegment(day.day);
@@ -263,11 +263,10 @@ export default function SchedulePage() {
         </div>
 
         {/* Right: Map + route info (sticky on desktop) */}
-        <div className="lg:w-[400px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3">
+        <div className="lg:w-[400px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3 order-1 lg:order-2">
           {/* Map */}
           <div
-            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
-            style={{ height: '360px' }}
+            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden h-64 lg:h-[360px]"
           >
             <TripMap language={language} activeDay={lastOpenedDay} />
           </div>

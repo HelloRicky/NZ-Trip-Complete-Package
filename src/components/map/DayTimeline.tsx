@@ -89,7 +89,7 @@ export default function DayTimeline({ activeDay, onDayChange, isPlaying, onPlayP
                 onDayChange(d);
               }}
               title={dayLabel(d)}
-              className={`w-8 h-7 rounded text-xs font-medium transition-colors ${
+              className={`w-9 h-9 rounded text-xs font-medium transition-colors ${
                 activeDay === d
                   ? 'bg-blue-500 text-white shadow-sm'
                   : activeDay !== null && d > activeDay

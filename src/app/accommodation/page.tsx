@@ -29,7 +29,7 @@ export default function AccommodationPage() {
       </div>
 
       {/* Strategy overview */}
-      <div className="grid grid-cols-3 gap-3 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         {ACCOMMODATION_BASES.map((base) => (
           <div key={base.id} className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
             <div className="font-bold text-emerald-700 text-sm">{language === 'en' ? base.name.en : base.name.zh}</div>
