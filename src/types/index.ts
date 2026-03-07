@@ -17,6 +17,7 @@ export interface RouteSegment {
   coords: [number, number][];
   color: string;
   day: BilingualText;
+  dayNum: number;
 }
 
 export type Priority = 'high' | 'medium' | 'low' | 'optional' | 'free';

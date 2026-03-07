@@ -80,6 +80,10 @@ export const zh = {
     legend_daytrips: '一日游目的地',
     loading: '地图加载中...',
     click_marker: '点击标记查看详情',
+    play: '播放',
+    pause: '暂停',
+    show_all: '显示全部',
+    day: '第',
   },
   accommodation: {
     title: '住宿计划',

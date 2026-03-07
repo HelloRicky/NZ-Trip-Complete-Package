@@ -1,8 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { LOCATIONS, ROUTE_SEGMENTS } from '@/data/locations';
+import DayTimeline from '@/components/map/DayTimeline';
 
 const TripMap = dynamic(() => import('@/components/map/TripMap'), {
   ssr: false,
@@ -18,6 +20,12 @@ const TripMap = dynamic(() => import('@/components/map/TripMap'), {
 
 export default function MapPage() {
   const { t, language } = useLanguage();
+  const [activeDay, setActiveDay] = useState<number | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  function handlePlayPause() {
+    setIsPlaying((prev) => !prev);
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -26,10 +34,24 @@ export default function MapPage() {
         <p className="text-gray-500 text-sm mt-1">{t.map.subtitle}</p>
       </div>
 
+      <DayTimeline
+        activeDay={activeDay}
+        onDayChange={setActiveDay}
+        isPlaying={isPlaying}
+        onPlayPause={handlePlayPause}
+        language={language}
+        labels={{
+          play: t.map.play,
+          pause: t.map.pause,
+          show_all: t.map.show_all,
+          day: t.map.day,
+        }}
+      />
+
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Map */}
         <div className="flex-1 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" style={{ height: '550px' }}>
-          <TripMap language={language} />
+          <TripMap language={language} activeDay={activeDay} />
         </div>
 
         {/* Sidebar */}
@@ -53,15 +75,21 @@ export default function MapPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
             <h3 className="font-semibold text-gray-700 text-sm mb-3">{language === 'en' ? 'Route Segments' : '路线段'}</h3>
             <div className="space-y-2">
-              {ROUTE_SEGMENTS.map((seg, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                  <span
-                    className="w-6 h-2 rounded shrink-0 border border-dashed"
-                    style={{ background: seg.color, borderColor: seg.color }}
-                  />
-                  {language === 'en' ? seg.day.en : seg.day.zh}
-                </div>
-              ))}
+              {ROUTE_SEGMENTS.map((seg, i) => {
+                const active = activeDay === null || seg.dayNum <= activeDay;
+                return (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-2 text-xs transition-opacity ${active ? 'text-gray-600 opacity-100' : 'text-gray-300 opacity-40'}`}
+                  >
+                    <span
+                      className="w-6 h-2 rounded shrink-0 border border-dashed"
+                      style={{ background: active ? seg.color : '#d1d5db', borderColor: active ? seg.color : '#d1d5db' }}
+                    />
+                    {language === 'en' ? seg.day.en : seg.day.zh}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -69,15 +97,21 @@ export default function MapPage() {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
             <h3 className="font-semibold text-gray-700 text-sm mb-3">{language === 'en' ? 'All Locations' : '所有地点'}</h3>
             <div className="space-y-1">
-              {LOCATIONS.map((loc) => (
-                <div key={loc.id} className="flex items-center gap-2 text-xs text-gray-600 py-1">
-                  <span>{loc.icon}</span>
-                  <span>{language === 'en' ? loc.name.en : loc.name.zh}</span>
-                  {loc.type === 'base' && (
-                    <span className="ml-auto text-red-500 text-xs">Base</span>
-                  )}
-                </div>
-              ))}
+              {LOCATIONS.map((loc) => {
+                const active = activeDay === null || (loc.days != null && Math.min(...loc.days) <= activeDay);
+                return (
+                  <div
+                    key={loc.id}
+                    className={`flex items-center gap-2 text-xs py-1 transition-opacity ${active ? 'text-gray-600 opacity-100' : 'text-gray-300 opacity-40'}`}
+                  >
+                    <span>{loc.icon}</span>
+                    <span>{language === 'en' ? loc.name.en : loc.name.zh}</span>
+                    {loc.type === 'base' && (
+                      <span className="ml-auto text-red-500 text-xs">Base</span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -86,6 +86,10 @@ export const en = {
     legend_daytrips: 'Day Trip Destinations',
     loading: 'Loading map...',
     click_marker: 'Click a marker for details',
+    play: 'Play',
+    pause: 'Pause',
+    show_all: 'Show All',
+    day: 'Day',
   },
   // Accommodation page
   accommodation: {
