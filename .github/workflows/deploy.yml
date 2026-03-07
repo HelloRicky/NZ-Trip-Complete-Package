@@ -1,0 +1,64 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main, master, dev]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install next-on-pages
+        run: npm install -D @cloudflare/next-on-pages
+
+      - name: Build with next-on-pages
+        run: npx @cloudflare/next-on-pages
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy .vercel/output/static --project-name=nz-trip-complete
+
+      - name: Notify Discord
+        if: always()
+        env:
+          PROJECT_NAME: nz-trip-complete
+        run: |
+          STATUS="${{ job.status }}"
+          if [ "$STATUS" = "success" ]; then
+            COLOR=5763719
+            EMOJI="🚀"
+          else
+            COLOR=15548997
+            EMOJI="❌"
+          fi
+          DEPLOY_URL="https://nz-trip-complete.pages.dev"
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"embeds\": [{
+                \"title\": \"${EMOJI} nz-trip-complete ${STATUS}\",
+                \"color\": ${COLOR},
+                \"fields\": [
+                  {\"name\": \"Branch\", \"value\": \"\`${{ github.ref_name }}\`\", \"inline\": true},
+                  {\"name\": \"Commit\", \"value\": \"\`$(echo ${{ github.sha }} | cut -c1-7)\`\", \"inline\": true},
+                  {\"name\": \"URL\", \"value\": \"${DEPLOY_URL}\", \"inline\": false}
+                ],
+                \"footer\": {\"text\": \"$(date -u +'%Y-%m-%d %H:%M UTC')\"}
+              }]
+            }"
