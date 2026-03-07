@@ -1,20 +1,42 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { TRAVELERS, TRIP_DATES, CAMPERVAN, BUDGET_SUMMARY } from '@/data/trip';
+import { IMAGES } from '@/data/images';
+
+function getDaysUntilTrip(): number {
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-AU', {
+    timeZone: 'Australia/Sydney',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+  }).formatToParts(now);
+  const y = parseInt(parts.find((p) => p.type === 'year')!.value);
+  const m = parseInt(parts.find((p) => p.type === 'month')!.value) - 1;
+  const d = parseInt(parts.find((p) => p.type === 'day')!.value);
+  const todaySydney = new Date(y, m, d);
+  const tripStart = new Date(2026, 3, 11); // April 11, 2026
+  return Math.round((tripStart.getTime() - todaySydney.getTime()) / 86400000);
+}
 
 export default function HomePage() {
   const { t, language } = useLanguage();
+  const [daysUntil, setDaysUntil] = useState<number | null>(null);
+
+  useEffect(() => {
+    setDaysUntil(getDaysUntilTrip());
+  }, []);
 
   const highlights = [
-    { emoji: '🌲', en: 'EcoZip Ziplines – Kaikoura', zh: 'EcoZip滑索 – 凯库拉' },
-    { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉' },
-    { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山' },
-    { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇' },
-    { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）' },
-    { emoji: '🧩', en: 'Puzzling World – Wanaka', zh: '迷惑世界 – 瓦纳卡' },
-    { emoji: '🐬', en: "Akaroa Dolphins – Chris's family", zh: '阿卡罗阿海豚 – Chris一家' },
+    { emoji: '🌲', en: 'EcoZip Ziplines – Kaikoura', zh: 'EcoZip滑索 – 凯库拉', img: IMAGES.activities.ecozip },
+    { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉', img: IMAGES.activities['seal-kayak'] },
+    { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山', img: IMAGES.activities['hooker-valley'] },
+    { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇', img: IMAGES.activities['skyline-gondola'] },
+    { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）', img: IMAGES.destinations.glenorchy },
+    { emoji: '🧩', en: 'Puzzling World – Wanaka', zh: '迷惑世界 – 瓦纳卡', img: IMAGES.activities['puzzling-world'] },
+    { emoji: '🐬', en: "Akaroa Dolphins – Chris's family", zh: '阿卡罗阿海豚 – Chris一家', img: IMAGES.activities['akaroa-cruise'] },
   ];
 
   const roseFamilyCount = TRAVELERS.filter((t) => t.family === 'rose').length;
@@ -23,13 +45,32 @@ export default function HomePage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center shadow-lg">
-        <div className="text-4xl mb-3">🇳🇿</div>
-        <h1 className="text-2xl md:text-3xl font-bold mb-2">{t.home.hero_title}</h1>
-        <p className="text-emerald-100 text-lg">{t.home.hero_subtitle}</p>
-        <p className="text-emerald-200 text-sm mt-2">
-          {TRIP_DATES.start} – {TRIP_DATES.end}
-        </p>
+      <div className="relative rounded-2xl overflow-hidden shadow-lg h-56 md:h-72">
+        <Image
+          src={IMAGES.hero}
+          alt="New Zealand South Island"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/80 to-teal-900/70" />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+          <div className="text-4xl mb-3">🇳🇿</div>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">{t.home.hero_title}</h1>
+          <p className="text-emerald-100 text-lg">{t.home.hero_subtitle}</p>
+          {daysUntil !== null && daysUntil > 0 ? (
+            <div className="mt-3 bg-white/20 backdrop-blur-sm rounded-xl px-5 py-2 text-center">
+              <span className="text-3xl font-bold text-white">{daysUntil}</span>
+              <span className="text-emerald-100 text-sm ml-2">
+                {language === 'en' ? 'days to go' : '天后出发'}
+              </span>
+            </div>
+          ) : (
+            <p className="text-emerald-200 text-sm mt-2">
+              {TRIP_DATES.start} – {TRIP_DATES.end}
+            </p>
+          )}
+        </div>
       </div>
 
       {/* Quick Stats */}
@@ -109,10 +150,15 @@ export default function HomePage() {
       <div>
         <h2 className="font-bold text-gray-700 mb-4">{t.home.highlights}</h2>
         <div className="grid sm:grid-cols-2 gap-3">
-          {highlights.map(({ emoji, en, zh }) => (
-            <div key={en} className="bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-100 flex items-center gap-3">
-              <span className="text-xl">{emoji}</span>
-              <span className="text-sm text-gray-700">{language === 'en' ? en : zh}</span>
+          {highlights.map(({ emoji, en, zh, img }) => (
+            <div key={en} className="bg-white rounded-lg shadow-sm border border-gray-100 flex items-center gap-3 overflow-hidden">
+              <div className="relative w-16 h-14 shrink-0">
+                <Image src={img} alt={en} fill className="object-cover" />
+              </div>
+              <div className="flex items-center gap-2 pr-3">
+                <span className="text-lg">{emoji}</span>
+                <span className="text-sm text-gray-700">{language === 'en' ? en : zh}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -123,8 +169,7 @@ export default function HomePage() {
         <h2 className="font-bold text-gray-700 mb-4">{language === 'en' ? 'Quick Navigation' : '快速导航'}</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {[
-            { href: '/itinerary', emoji: '📅', en: 'Day-by-Day Itinerary', zh: '每日行程' },
-            { href: '/map', emoji: '🗺️', en: 'Interactive Map', zh: '互动地图' },
+            { href: '/schedule', emoji: '📅', en: 'Trip Schedule', zh: '行程日程' },
             { href: '/accommodation', emoji: '🏨', en: 'Accommodation', zh: '住宿计划' },
             { href: '/activities', emoji: '🎢', en: 'Activities & Bookings', zh: '活动与预订' },
             { href: '/budget', emoji: '💰', en: 'Budget Tracker', zh: '预算追踪' },

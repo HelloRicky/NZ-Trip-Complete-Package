@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { PACKING_CATEGORIES } from '@/data/packing';
+import { IMAGES } from '@/data/images';
 import clsx from 'clsx';
 
 const STORAGE_KEY = 'nz-trip-packing';
@@ -47,17 +49,26 @@ export default function PackingPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="flex items-start justify-between mb-6">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800">{t.packing.title}</h1>
-          <p className="text-gray-500 text-sm mt-1">{t.packing.subtitle}</p>
+      <div className="relative rounded-xl overflow-hidden mb-6 h-28">
+        <Image
+          src={IMAGES.destinations.queenstown}
+          alt="New Zealand packing"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/75 to-emerald-800/50" />
+        <div className="absolute inset-0 flex items-center justify-between px-6">
+          <div>
+            <h1 className="text-2xl font-bold text-white">{t.packing.title}</h1>
+            <p className="text-emerald-100 text-sm mt-1">{t.packing.subtitle}</p>
+          </div>
+          <button
+            onClick={reset}
+            className="text-sm text-white border border-white/50 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            {t.packing.reset}
+          </button>
         </div>
-        <button
-          onClick={reset}
-          className="text-sm text-red-500 hover:text-red-700 border border-red-200 hover:border-red-400 px-3 py-1.5 rounded-lg transition-colors"
-        >
-          {t.packing.reset}
-        </button>
       </div>
 
       {/* Progress bar */}

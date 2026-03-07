@@ -13,8 +13,7 @@ export default function Navbar() {
 
   const links = [
     { href: '/', label: t.nav.home },
-    { href: '/itinerary', label: t.nav.itinerary },
-    { href: '/map', label: t.nav.map },
+    { href: '/schedule', label: t.nav.schedule },
     { href: '/accommodation', label: t.nav.accommodation },
     { href: '/activities', label: t.nav.activities },
     { href: '/budget', label: t.nav.budget },

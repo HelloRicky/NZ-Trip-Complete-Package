@@ -2,8 +2,7 @@ export const en = {
   // Nav
   nav: {
     home: 'Home',
-    itinerary: 'Itinerary',
-    map: 'Map',
+    schedule: 'Schedule',
     accommodation: 'Accommodation',
     activities: 'Activities',
     budget: 'Budget',
@@ -72,11 +71,12 @@ export const en = {
     participants: 'Participants',
     weather_note: 'April weather: 10–18°C. Layering essential! Strong UV – SPF50+ sunscreen required.',
   },
-  // Itinerary page
-  itinerary: {
-    title: 'Day-by-Day Itinerary',
+  // Schedule page
+  schedule: {
+    title: 'Trip Schedule',
     subtitle: '10 days across New Zealand\'s South Island',
     base: 'Accommodation Base',
+    driving: 'Driving',
   },
   // Map page
   map: {
@@ -94,8 +94,8 @@ export const en = {
   // Accommodation page
   accommodation: {
     title: 'Accommodation',
-    subtitle: '3-base strategy across South Island',
-    recommended_options: 'Recommended Options',
+    subtitle: 'Campsite bases across South Island',
+    campsite_options: 'Campsite Options',
     booking_notes: 'Booking Notes',
     vehicle_rental: 'Campervan Rental',
     vehicle_booked: '✅ BOOKED: JUCY Rentals',

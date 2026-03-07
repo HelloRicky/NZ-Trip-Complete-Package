@@ -1,8 +1,7 @@
 export const zh = {
   nav: {
     home: '首页',
-    itinerary: '行程',
-    map: '地图',
+    schedule: '日程',
     accommodation: '住宿',
     activities: '活动',
     budget: '预算',
@@ -68,10 +67,11 @@ export const zh = {
     participants: '参与者',
     weather_note: '4月天气：10-18°C。分层穿衣必不可少！紫外线强烈 – 必须使用SPF50+防晒霜。',
   },
-  itinerary: {
-    title: '每日详细行程',
+  schedule: {
+    title: '行程日程',
     subtitle: '探索新西兰南岛的10天旅程',
     base: '住宿基地',
+    driving: '驾车',
   },
   map: {
     title: '行程地图',
@@ -87,8 +87,8 @@ export const zh = {
   },
   accommodation: {
     title: '住宿计划',
-    subtitle: '南岛3基地策略',
-    recommended_options: '推荐选项',
+    subtitle: '南岛营地基地',
+    campsite_options: '营地选择',
     booking_notes: '预订说明',
     vehicle_rental: '房车租赁',
     vehicle_booked: '✅ 已预订：JUCY租车',

@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { BUDGET_ITEMS, TOTAL_BUDGET, ACTIVITY_COSTS, FOOD_BUDGET } from '@/data/budget';
+import { IMAGES } from '@/data/images';
 import PriorityBadge from '@/components/shared/PriorityBadge';
 
 export default function BudgetPage() {
@@ -12,9 +14,18 @@ export default function BudgetPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">{t.budget.title}</h1>
-        <p className="text-gray-500 text-sm mt-1">{t.budget.subtitle}</p>
+      <div className="relative rounded-xl overflow-hidden mb-6 h-28">
+        <Image
+          src={IMAGES.misc.autumnRoad}
+          alt="New Zealand scenic road"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/70 to-gray-700/50" />
+        <div className="absolute inset-0 flex flex-col justify-center px-6">
+          <h1 className="text-2xl font-bold text-white">{t.budget.title}</h1>
+          <p className="text-gray-200 text-sm mt-1">{t.budget.subtitle}</p>
+        </div>
       </div>
 
       {/* Summary cards */}

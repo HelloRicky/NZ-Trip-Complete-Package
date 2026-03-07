@@ -109,6 +109,8 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     color: '#3498db',
     day: { en: 'Day 2 – Kaikoura', zh: '第2天 – 凯库拉' },
     dayNum: 2,
+    distance: '360 km',
+    driveTime: '5 hrs',
   },
   {
     coords: [
@@ -120,6 +122,8 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     color: '#9b59b6',
     day: { en: 'Day 3 – Lake Tekapo & Mt Cook', zh: '第3天 – 蒂卡波湖 & 库克山' },
     dayNum: 3,
+    distance: '600 km',
+    driveTime: '7 hrs',
   },
   {
     coords: [
@@ -129,6 +133,8 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     color: '#e67e22',
     day: { en: 'Day 4 – Drive to Queenstown', zh: '第4天 – 驱车至皇后镇' },
     dayNum: 4,
+    distance: '480 km',
+    driveTime: '6 hrs',
   },
   {
     coords: [
@@ -139,6 +145,8 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     color: '#1abc9c',
     day: { en: 'Day 6 – Glenorchy', zh: '第6天 – 格林诺奇' },
     dayNum: 6,
+    distance: '90 km',
+    driveTime: '1.5 hrs',
   },
   {
     coords: [
@@ -149,5 +157,7 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     color: '#e74c3c',
     day: { en: 'Day 7 – Wanaka → Christchurch', zh: '第7天 – 瓦纳卡 → 基督城' },
     dayNum: 7,
+    distance: '430 km',
+    driveTime: '5.5 hrs',
   },
 ];

@@ -18,6 +18,8 @@ export interface RouteSegment {
   color: string;
   day: BilingualText;
   dayNum: number;
+  distance?: string;
+  driveTime?: string;
 }
 
 export type Priority = 'high' | 'medium' | 'low' | 'optional' | 'free';
@@ -70,12 +72,12 @@ export interface ItineraryDay {
 
 export interface AccommodationOption {
   name: string;
-  stars: number;
+  powered: boolean;
   address: BilingualText;
   whyChoose: BilingualText;
-  roomType: BilingualText;
+  siteType: BilingualText;
   amenities: BilingualText[];
-  distanceToCenter: BilingualText;
+  distanceToTown: BilingualText;
 }
 
 export interface AccommodationBase {

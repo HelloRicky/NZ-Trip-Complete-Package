@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { ACTIVITIES } from '@/data/activities';
+import { ACTIVITY_IMAGES } from '@/data/images';
 import PriorityBadge from '@/components/shared/PriorityBadge';
 import StatusBadge from '@/components/shared/StatusBadge';
 import type { Priority } from '@/types';
@@ -90,10 +92,20 @@ export default function ActivitiesPage() {
           return (
             <div key={activity.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
               <button
-                className="w-full flex items-center gap-3 px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center gap-3 text-left hover:bg-gray-50 transition-colors"
                 onClick={() => toggle(activity.id)}
               >
-                <div className="flex-1 min-w-0">
+                {ACTIVITY_IMAGES[activity.id] && (
+                  <div className="relative w-20 h-16 shrink-0">
+                    <Image
+                      src={ACTIVITY_IMAGES[activity.id]}
+                      alt={activity.name.en}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 py-4 pr-5 pl-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="font-semibold text-gray-800 text-sm">
                       {language === 'en' ? activity.name.en : activity.name.zh}
@@ -113,11 +125,26 @@ export default function ActivitiesPage() {
                     )}
                   </div>
                 </div>
-                <span className="text-gray-400 shrink-0">{isOpen ? '▲' : '▼'}</span>
+                <span className="text-gray-400 shrink-0 pr-5">{isOpen ? '▲' : '▼'}</span>
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 border-t border-gray-100 pt-4 space-y-3">
+                <div className="border-t border-gray-100">
+                  {ACTIVITY_IMAGES[activity.id] && (
+                    <div className="relative h-40 w-full">
+                      <Image
+                        src={ACTIVITY_IMAGES[activity.id]}
+                        alt={activity.name.en}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />
+                      <div className="absolute bottom-3 left-4 text-white font-semibold text-sm drop-shadow">
+                        {language === 'en' ? activity.name.en : activity.name.zh}
+                      </div>
+                    </div>
+                  )}
+                <div className="px-5 pb-5 pt-4 space-y-3">
                   <p className="text-sm text-gray-600">
                     {language === 'en' ? activity.description.en : activity.description.zh}
                   </p>
@@ -188,6 +215,7 @@ export default function ActivitiesPage() {
                       <span className="text-blue-600">{activity.website}</span>
                     </div>
                   )}
+                </div>
                 </div>
               )}
             </div>
