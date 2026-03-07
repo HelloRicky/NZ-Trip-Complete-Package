@@ -6,38 +6,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A **Next.js 15 web application** for planning a New Zealand South Island family trip (April 11-20, 2026).
 
-## Project Location
-
-All app code is in `nz-trip/`:
+## Project Structure
 
 ```
-nz-trip/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── page.tsx            # Home/overview
-│   │   ├── itinerary/page.tsx  # Day-by-day schedule (collapsible)
-│   │   ├── map/page.tsx        # Interactive Leaflet map
-│   │   ├── accommodation/page.tsx
-│   │   ├── activities/page.tsx # Bookings tracker with filters
-│   │   ├── budget/page.tsx     # Cost breakdown
-│   │   └── packing/page.tsx    # Interactive checklist (localStorage)
-│   ├── components/
-│   │   ├── layout/Navbar.tsx   # Responsive navbar with language toggle
-│   │   ├── map/TripMap.tsx     # Leaflet map (dynamic import, ssr:false)
-│   │   └── shared/             # PriorityBadge, StatusBadge, InfoCard
-│   ├── data/                   # All structured trip data (TypeScript)
-│   │   ├── trip.ts             # Constants: flights, campervan, travelers
-│   │   ├── locations.ts        # Map coords & route segments
-│   │   ├── itinerary.ts        # 10-day schedule with bilingual text
-│   │   ├── activities.ts       # Booking details
-│   │   ├── accommodation.ts    # 3-base strategy
-│   │   ├── budget.ts           # Cost breakdown
-│   │   └── packing.ts          # Packing items
-│   ├── i18n/
-│   │   ├── LanguageContext.tsx # React context + localStorage persistence
-│   │   └── translations/       # en.ts, zh.ts (UI strings)
-│   └── types/index.ts          # All TypeScript interfaces
-└── public/images/              # Booking confirmation images (JPG)
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx            # Home/overview
+│   ├── itinerary/page.tsx  # Day-by-day schedule (collapsible)
+│   ├── map/page.tsx        # Interactive Leaflet map
+│   ├── accommodation/page.tsx
+│   ├── activities/page.tsx # Bookings tracker with filters
+│   ├── budget/page.tsx     # Cost breakdown
+│   └── packing/page.tsx    # Interactive checklist (localStorage)
+├── components/
+│   ├── layout/Navbar.tsx   # Responsive navbar with language toggle
+│   ├── map/TripMap.tsx     # Leaflet map (dynamic import, ssr:false)
+│   └── shared/             # PriorityBadge, StatusBadge, InfoCard
+├── data/                   # All structured trip data (TypeScript)
+│   ├── trip.ts             # Constants: flights, campervan, travelers
+│   ├── locations.ts        # Map coords & route segments
+│   ├── itinerary.ts        # 10-day schedule with bilingual text
+│   ├── activities.ts       # Booking details
+│   ├── accommodation.ts    # 3-base strategy
+│   ├── budget.ts           # Cost breakdown
+│   └── packing.ts          # Packing items
+├── i18n/
+│   ├── LanguageContext.tsx # React context + localStorage persistence
+│   └── translations/       # en.ts, zh.ts (UI strings)
+└── types/index.ts          # All TypeScript interfaces
+public/images/              # Booking confirmation images (JPG)
 ```
 
 ## Tech Stack
@@ -72,7 +69,6 @@ Stored in `localStorage` under key `nz-trip-packing` as a JSON array of checked 
 ## Development Commands
 
 ```bash
-cd nz-trip
 npm run dev      # Start dev server (localhost:3000)
 npm run build    # Production build + TypeScript check
 ```

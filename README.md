@@ -9,7 +9,6 @@ This is a Next.js web application for planning our New Zealand South Island fami
 ## Getting Started | 开始使用
 
 ```bash
-cd nz-trip
 npm install
 npm run dev
 ```

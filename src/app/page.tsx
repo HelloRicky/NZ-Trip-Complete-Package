@@ -1,0 +1,153 @@
+'use client';
+
+import Link from 'next/link';
+import { useLanguage } from '@/i18n/LanguageContext';
+import { TRAVELERS, TRIP_DATES, CAMPERVAN, BUDGET_SUMMARY } from '@/data/trip';
+
+export default function HomePage() {
+  const { t, language } = useLanguage();
+
+  const highlights = [
+    { emoji: '🌲', en: 'EcoZip Ziplines – Kaikoura', zh: 'EcoZip滑索 – 凯库拉' },
+    { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉' },
+    { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山' },
+    { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇' },
+    { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）' },
+    { emoji: '🧩', en: 'Puzzling World – Wanaka', zh: '迷惑世界 – 瓦纳卡' },
+    { emoji: '🐬', en: "Akaroa Dolphins – Chris's family", zh: '阿卡罗阿海豚 – Chris一家' },
+  ];
+
+  const roseFamilyCount = TRAVELERS.filter((t) => t.family === 'rose').length;
+  const chrisFamilyCount = TRAVELERS.filter((t) => t.family === 'chris').length;
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white text-center shadow-lg">
+        <div className="text-4xl mb-3">🇳🇿</div>
+        <h1 className="text-2xl md:text-3xl font-bold mb-2">{t.home.hero_title}</h1>
+        <p className="text-emerald-100 text-lg">{t.home.hero_subtitle}</p>
+        <p className="text-emerald-200 text-sm mt-2">
+          {TRIP_DATES.start} – {TRIP_DATES.end}
+        </p>
+      </div>
+
+      {/* Quick Stats */}
+      <div>
+        <h2 className="text-lg font-bold text-gray-700 mb-4">{t.home.quick_stats}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: t.home.travelers, value: TRAVELERS.length, emoji: '👥' },
+            { label: language === 'en' ? '10 Days Total' : '共10天', value: 10, emoji: '📅' },
+            { label: language === 'en' ? 'Destinations' : '目的地', value: 8, emoji: '📍' },
+            { label: language === 'en' ? 'Campervan' : '房车', value: 'JUCY', emoji: '🚐' },
+          ].map(({ label, value, emoji }) => (
+            <div key={label} className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+              <div className="text-2xl mb-1">{emoji}</div>
+              <div className="text-xl font-bold text-gray-800">{value}</div>
+              <div className="text-xs text-gray-500 mt-0.5">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Families */}
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xl">👨‍👩‍👧‍👦</span>
+            <h3 className="font-bold text-gray-800">{t.home.rose_family}</h3>
+            <span className="text-xs text-gray-400 ml-auto">{roseFamilyCount} {language === 'en' ? 'people' : '人'}</span>
+          </div>
+          <p className="text-sm text-gray-600">{t.home.rose_members}</p>
+          <p className="text-xs text-gray-400 mt-1">{t.home.rose_days}</p>
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <p className="text-xs text-gray-500">
+              {language === 'en' ? 'Budget' : '预算'}: ~NZD ${BUDGET_SUMMARY.roseFamilyNZD.toLocaleString()} <span className="text-gray-400">({language === 'en' ? 'excl. flights' : '不含机票'})</span>
+            </p>
+          </div>
+        </div>
+        <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xl">👨‍👩‍👦</span>
+            <h3 className="font-bold text-gray-800">{t.home.chris_family}</h3>
+            <span className="text-xs text-gray-400 ml-auto">{chrisFamilyCount} {language === 'en' ? 'people' : '人'}</span>
+          </div>
+          <p className="text-sm text-gray-600">{t.home.chris_members}</p>
+          <p className="text-xs text-gray-400 mt-1">{t.home.chris_days}</p>
+          <div className="mt-3 pt-3 border-t border-gray-100">
+            <p className="text-xs text-gray-500">
+              {language === 'en' ? 'Budget' : '预算'}: ~NZD ${BUDGET_SUMMARY.chrisFamilyNZD.toLocaleString()} <span className="text-gray-400">({language === 'en' ? 'excl. flights' : '不含机票'})</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Campervan Booking Status */}
+      <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+        <h2 className="font-bold text-gray-700 mb-4">{t.home.booking_status}</h2>
+        <div className="space-y-2">
+          {[
+            { label: language === 'en' ? 'Flights (EK412 / EK413)' : '航班（EK412/EK413）', status: '✅', detail: language === 'en' ? 'Confirmed – Booking #750492842' : '已确认 – 预订号#750492842' },
+            { label: language === 'en' ? 'JUCY Big Kahuna Campervan' : 'JUCY Big Kahuna房车', status: '✅', detail: language === 'en' ? `Confirmed – ${CAMPERVAN.bookingRef}` : `已确认 – ${CAMPERVAN.bookingRef}` },
+            { label: language === 'en' ? 'Accommodation (3 bases)' : '住宿（3个基地）', status: '⏳', detail: language === 'en' ? 'Not yet booked – book soon!' : '尚未预订 – 尽快预订！' },
+            { label: language === 'en' ? 'EcoZip Adventures' : 'EcoZip探险', status: '⏳', detail: language === 'en' ? 'Not yet booked – HIGH PRIORITY' : '尚未预订 – 高优先级' },
+            { label: language === 'en' ? 'Skyline Gondola + Luge' : '天际缆车 + 滑道', status: '⏳', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
+          ].map(({ label, status, detail }) => (
+            <div key={label} className="flex items-center gap-3 py-2 border-b border-gray-50 last:border-0">
+              <span className="text-lg">{status}</span>
+              <div>
+                <p className="text-sm font-medium text-gray-700">{label}</p>
+                <p className="text-xs text-gray-400">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Highlights */}
+      <div>
+        <h2 className="font-bold text-gray-700 mb-4">{t.home.highlights}</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {highlights.map(({ emoji, en, zh }) => (
+            <div key={en} className="bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-100 flex items-center gap-3">
+              <span className="text-xl">{emoji}</span>
+              <span className="text-sm text-gray-700">{language === 'en' ? en : zh}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Cards */}
+      <div>
+        <h2 className="font-bold text-gray-700 mb-4">{language === 'en' ? 'Quick Navigation' : '快速导航'}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {[
+            { href: '/itinerary', emoji: '📅', en: 'Day-by-Day Itinerary', zh: '每日行程' },
+            { href: '/map', emoji: '🗺️', en: 'Interactive Map', zh: '互动地图' },
+            { href: '/accommodation', emoji: '🏨', en: 'Accommodation', zh: '住宿计划' },
+            { href: '/activities', emoji: '🎢', en: 'Activities & Bookings', zh: '活动与预订' },
+            { href: '/budget', emoji: '💰', en: 'Budget Tracker', zh: '预算追踪' },
+            { href: '/packing', emoji: '🎒', en: 'Packing List', zh: '打包清单' },
+          ].map(({ href, emoji, en, zh }) => (
+            <Link
+              key={href}
+              href={href}
+              className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all text-center group"
+            >
+              <div className="text-2xl mb-2">{emoji}</div>
+              <div className="text-sm font-medium text-gray-700 group-hover:text-emerald-700">
+                {language === 'en' ? en : zh}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Weather note */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-700">
+        🌤️ {t.common.weather_note}
+      </div>
+    </div>
+  );
+}
