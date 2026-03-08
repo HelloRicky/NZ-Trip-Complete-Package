@@ -1,4 +1,14 @@
 import type { Location, RouteSegment } from '@/types';
+import {
+  ROAD_DAY1,
+  ROAD_DAY4,
+  ROAD_DAY5,
+  ROAD_DAY6,
+  ROAD_DAY8,
+  ROAD_DAY9_ROSE,
+  ROAD_DAY9_CHRIS,
+  ROAD_DAY10,
+} from './road-routes';
 
 export const LOCATIONS: Location[] = [
   // === ARRIVAL/DEPARTURE ===
@@ -331,27 +341,18 @@ export const LOCATIONS: Location[] = [
 ];
 
 export const ROUTE_SEGMENTS: RouteSegment[] = [
-  // Day 1: Christchurch → Kaikoura
+  // Day 1: Christchurch → Kaikoura (SH1 coastal)
   {
-    coords: [
-      [-43.4864, 172.5369], // CHC Airport
-      [-42.5833, 173.4167], // Goose Bay
-      [-42.4008, 173.6817], // Kaikoura
-    ],
+    coords: ROAD_DAY1,
     color: '#2ecc71',
     day: { en: 'Day 1 – Arrive → Kaikoura', zh: '第1天 – 抵达 → 凯库拉' },
     dayNum: 1,
     distance: '180 km',
     driveTime: '2.5 hrs',
   },
-  // Day 4: Kaikoura → Lake Tekapo → Mt Cook
+  // Day 4: Kaikoura → Lake Tekapo → Mt Cook (SH1 → SH8 → SH80)
   {
-    coords: [
-      [-42.4008, 173.6817], // Kaikoura
-      [-44.0048, 170.4772], // Lake Tekapo
-      [-44.1667, 170.1500], // Lake Pukaki
-      [-43.7333, 170.0833], // Glentanner
-    ],
+    coords: ROAD_DAY4,
     color: '#9b59b6',
     day: { en: 'Day 4 – Kaikoura → Mt Cook', zh: '第4天 – 凯库拉 → 库克山' },
     dayNum: 4,
@@ -360,24 +361,16 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
   },
   // Day 5: Glentanner → Hooker Valley (return)
   {
-    coords: [
-      [-43.7333, 170.0833], // Glentanner
-      [-43.7167, 170.0833], // Hooker Valley
-    ],
+    coords: ROAD_DAY5,
     color: '#1abc9c',
     day: { en: 'Day 5 – Hooker Valley Track', zh: '第5天 – Hooker Valley步道' },
     dayNum: 5,
     distance: '25 km',
     driveTime: '25 min',
   },
-  // Day 6: Mt Cook → Queenstown
+  // Day 6: Mt Cook → Queenstown (SH80 → SH8 via Lindis Pass)
   {
-    coords: [
-      [-43.7333, 170.0833], // Glentanner
-      [-44.6000, 169.6333], // Lindis Pass
-      [-45.0383, 169.1983], // Cromwell
-      [-45.0312, 168.6626], // Queenstown
-    ],
+    coords: ROAD_DAY6,
     color: '#e67e22',
     day: { en: 'Day 6 – Mt Cook → Queenstown', zh: '第6天 – 库克山 → 皇后镇' },
     dayNum: 6,
@@ -386,12 +379,7 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
   },
   // Day 8: Queenstown ↔ Glenorchy/Paradise
   {
-    coords: [
-      [-45.0312, 168.6626], // Queenstown
-      [-44.9500, 168.5167], // Bennett's Bluff
-      [-44.8503, 168.3772], // Glenorchy
-      [-44.7833, 168.2833], // Paradise
-    ],
+    coords: ROAD_DAY8,
     color: '#3498db',
     day: { en: 'Day 8 – Glenorchy & Paradise', zh: '第8天 – 格林诺奇和天堂谷' },
     dayNum: 8,
@@ -400,24 +388,16 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
   },
   // Day 9 (Rose): Queenstown → Christchurch
   {
-    coords: [
-      [-45.0312, 168.6626], // Queenstown
-      [-45.0383, 169.1983], // Cromwell
-      [-43.4864, 172.5369], // CHC Airport
-    ],
+    coords: ROAD_DAY9_ROSE,
     color: '#e74c3c',
     day: { en: 'Day 9 – Rose: QT → Christchurch', zh: '第9天 – Rose：皇后镇 → 基督城' },
     dayNum: 9,
     distance: '480 km',
     driveTime: '6 hrs',
   },
-  // Day 9 (Chris): Queenstown ↔ Wanaka
+  // Day 9 (Chris): Queenstown → Wanaka (Crown Range)
   {
-    coords: [
-      [-45.0312, 168.6626], // Queenstown
-      [-44.9333, 168.9500], // Crown Range
-      [-44.7020, 169.1320], // Wanaka
-    ],
+    coords: ROAD_DAY9_CHRIS,
     color: '#f39c12',
     day: { en: 'Day 9 – Chris: Wanaka Day Trip', zh: '第9天 – Chris：瓦纳卡一日游' },
     dayNum: 9,
@@ -426,10 +406,7 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
   },
   // Day 10 (Chris): Queenstown → Christchurch
   {
-    coords: [
-      [-45.0312, 168.6626], // Queenstown
-      [-43.4864, 172.5369], // CHC Airport
-    ],
+    coords: ROAD_DAY10,
     color: '#c0392b',
     day: { en: 'Day 10 – Chris: QT → Christchurch', zh: '第10天 – Chris：皇后镇 → 基督城' },
     dayNum: 10,
