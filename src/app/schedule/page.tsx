@@ -8,6 +8,7 @@ import { ITINERARY } from '@/data/itinerary';
 import { ROUTE_SEGMENTS } from '@/data/locations';
 import { DAY_IMAGES } from '@/data/images';
 import DayTimeline from '@/components/map/DayTimeline';
+import MapLegend from '@/components/map/MapLegend';
 import type { ItineraryActivity } from '@/types';
 import clsx from 'clsx';
 
@@ -289,9 +290,10 @@ export default function SchedulePage() {
         <div className="lg:w-[420px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3 order-1 lg:order-2">
           {/* Map */}
           <div
-            className="rounded-2xl shadow-md border border-gray-100 overflow-hidden h-64 lg:h-[380px]"
+            className="relative rounded-2xl shadow-md border border-gray-100 overflow-hidden h-64 lg:h-[380px]"
           >
             <TripMap language={language} activeDay={lastOpenedDay} />
+            <MapLegend language={language} />
           </div>
 
           {/* Route info panel */}
