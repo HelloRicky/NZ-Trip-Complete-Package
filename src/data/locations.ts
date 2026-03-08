@@ -6,8 +6,9 @@ import {
   ROAD_DAY6,
   ROAD_DAY8,
   ROAD_DAY9_ROSE,
-  ROAD_DAY9_CHRIS,
   ROAD_DAY10,
+  ROAD_DAY8_ROSE,
+  ROAD_DAY9_ROSE_NEW,
 } from './road-routes';
 
 export const LOCATIONS: Location[] = [
@@ -247,10 +248,10 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '📷',
     description: {
-      en: 'Day 8: Bennett\'s Bluff\nFamous viewpoint\nQT-Glenorchy road\nAmazing photo spot!',
-      zh: '第8天：Bennett\'s Bluff\n著名观景台\n皇后镇-格林诺奇路上\n绝佳拍照点！',
+      en: 'Days 7 & 8: Bennett\'s Bluff\nFamous viewpoint on QT-Glenorchy road\nAmazing photo spot!\nDay 7: both families; Day 8: Chris family',
+      zh: '第7 & 8天：Bennett\'s Bluff\n皇后镇-格林诺奇路上著名观景台\n绝佳拍照点！\n第7天：两家人；第8天：Chris一家',
     },
-    days: [8],
+    days: [7, 8],
   },
   {
     id: 'glenorchy',
@@ -259,10 +260,10 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🏘️',
     description: {
-      en: 'Day 8: Glenorchy\nCharming lakeside village\nGlenorchy Walkway (lagoon)\nTrading Post lunch',
-      zh: '第8天：格林诺奇\n迷人湖畔小镇\n格林诺奇步道（泻湖）\n贸易所午餐',
+      en: 'Days 7 & 8: Glenorchy\nCharming lakeside village\nGlenorchy Walkway (lagoon)\nTrading Post lunch\nDay 7: quick stop (both); Day 8: full day (Chris)',
+      zh: '第7 & 8天：格林诺奇\n迷人湖畔小镇\n格林诺奇步道（泻湖）\n贸易所午餐\n第7天：短暂停留（两家人）；第8天：全天（Chris一家）',
     },
-    days: [8],
+    days: [7, 8],
   },
   {
     id: 'paradise',
@@ -271,60 +272,50 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🌲',
     description: {
-      en: 'Day 8: Paradise\nLord of the Rings filming!\nStunning beech forest\n25 min gravel road, FREE',
-      zh: '第8天：天堂谷\n《指环王》拍摄地！\n壮观山毛榉森林\n25分钟砾石路，免费',
+      en: 'Day 8: Paradise (Chris family)\nLord of the Rings filming!\nStunning beech forest\n25 min gravel road, FREE\nFull day – no time pressure!',
+      zh: '第8天：天堂谷（Chris一家）\n《指环王》拍摄地！\n壮观山毛榉森林\n25分钟砾石路，免费\n全天 – 不用赶时间！',
     },
     days: [8],
   },
 
-  // === DAY 9: WANAKA (Chris only) ===
+  // === DAY 8 (ROSE): OMARAMA & LAKE OHAU ===
   {
-    id: 'crown-range',
-    name: { en: 'Crown Range Road', zh: '皇冠山脉公路' },
-    coords: [-44.9333, 168.9500],
-    type: 'scenic',
-    icon: '🛣️',
-    description: {
-      en: 'Day 9: Crown Range\nNZ\'s highest main road\nSpectacular views\nQT to Wanaka scenic route',
-      zh: '第9天：皇冠山脉\n新西兰最高主干道\n壮观景色\n皇后镇至瓦纳卡风景路线',
-    },
-    days: [9],
-  },
-  {
-    id: 'puzzling-world',
-    name: { en: 'Puzzling World', zh: '迷惑世界' },
-    coords: [-44.6833, 169.1500],
+    id: 'omarama-hot-tubs',
+    name: { en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶' },
+    coords: [-44.5333, 170.0833],
     type: 'activity',
-    icon: '🧩',
+    icon: '♨️',
     description: {
-      en: 'Day 9: Puzzling World (Chris)\n⭐ Kids LOVE this!\nGreat Maze + Illusion Rooms\n1.5-2 hours, ~$68 for 3',
-      zh: '第9天：迷惑世界（Chris一家）\n⭐ 孩子们超爱！\n大迷宫 + 幻觉房间\n1.5-2小时，3人约$68',
+      en: 'Day 8: Omarama Hot Tubs (Rose family)\n⭐ Outdoor cedar hot tubs\nStunning MacKenzie Country views\n~$50/person, book in advance!\nVery relaxing!',
+      zh: '第8天：奥马拉马温泉浴桶（Rose一家）\n⭐ 露天雪松温泉浴桶\n壮观的麦肯齐地区风景\n约$50/人，提前预订！\n非常放松！',
     },
-    days: [9],
+    days: [8],
   },
   {
-    id: 'wanaka',
-    name: { en: 'Wanaka', zh: '瓦纳卡' },
-    coords: [-44.7020, 169.1320],
+    id: 'lake-ohau',
+    name: { en: 'Lake Ohau', zh: '奥豪湖' },
+    coords: [-44.2667, 169.8333],
     type: 'scenic',
     icon: '🏞️',
     description: {
-      en: 'Day 9: Wanaka (Chris family)\nThat Wanaka Tree 📷\nScenic lakefront\nRelaxed vibe',
-      zh: '第9天：瓦纳卡（Chris一家）\n瓦纳卡之树 📷\n美丽湖畔\n轻松氛围',
+      en: 'Day 8: Lake Ohau (Rose family)\nBeautiful remote alpine lake\nShort drive from Omarama\nOptional short walk on the shore\nFREE',
+      zh: '第8天：奥豪湖（Rose一家）\n美丽偏远的高山湖\n距奥马拉马短途驾车\n可在湖边短途步行\n免费',
     },
-    days: [9],
+    days: [8],
   },
+
+  // === DAY 10: CHRISTCHURCH (CHRIS ONLY) ===
   {
-    id: 'wanaka-tree',
-    name: { en: 'That Wanaka Tree', zh: '瓦纳卡之树' },
-    coords: [-44.6983, 169.1200],
-    type: 'scenic',
-    icon: '🌳',
+    id: 'bottle-lake-forest',
+    name: { en: 'Bottle Lake Forest Park', zh: '瓶湖森林公园' },
+    coords: [-43.4667, 172.6833],
+    type: 'activity',
+    icon: '🍄',
     description: {
-      en: 'Day 9: That Wanaka Tree\nNZ\'s most photographed tree\nQuick photo stop\nFREE',
-      zh: '第9天：瓦纳卡之树\n新西兰最上镜的树\n快速拍照\n免费',
+      en: 'Day 10: Bottle Lake Forest Park (Chris family)\n⭐ Mushroom foraging!\nPine mushrooms & saffron milk caps\n2-3 hours, FREE entry\nJust 20 min from airport\nKids love hunting for mushrooms!',
+      zh: '第10天：瓶湖森林公园（Chris一家）\n⭐ 采蘑菇！\n松茸和藏红花乳菇\n2-3小时，免费入园\n距机场仅20分钟\n孩子们超喜欢寻找蘑菇！',
     },
-    days: [9],
+    days: [10],
   },
 ];
 
@@ -365,40 +356,58 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '260 km',
     driveTime: '3.5 hrs',
   },
-  // Day 8: Queenstown ↔ Glenorchy/Paradise
+  // Day 7: Queenstown ↔ Glenorchy (both families – shortened)
   {
     coords: ROAD_DAY8,
     color: '#3498db',
-    day: { en: 'Day 8 – Glenorchy & Paradise', zh: '第8天 – 格林诺奇和天堂谷' },
-    dayNum: 8,
+    day: { en: 'Day 7 – Glenorchy Scenic Drive (Both Families)', zh: '第7天 – 格林诺奇风景驾车（两家人）' },
+    dayNum: 7,
     distance: '95 km',
     driveTime: '1.5 hrs',
   },
-  // Day 9 (Rose): Queenstown → Christchurch
+  // Day 8 (Rose): Queenstown → Omarama via Cromwell, Lindis Pass
+  {
+    coords: ROAD_DAY8_ROSE,
+    color: '#e74c3c',
+    day: { en: 'Day 8 – Rose: QT → Omarama (via Cromwell, Lindis Pass)', zh: '第8天 – Rose：皇后镇 → 奥马拉马（经克伦威尔、Lindis Pass）' },
+    dayNum: 8,
+    distance: '230 km',
+    driveTime: '3 hrs',
+  },
+  // Day 8 (Chris): Queenstown ↔ Glenorchy & Paradise (full day)
+  {
+    coords: ROAD_DAY8,
+    color: '#f39c12',
+    day: { en: 'Day 8 – Chris: Full Day Glenorchy & Paradise', zh: '第8天 – Chris：全天格林诺奇 & 天堂谷' },
+    dayNum: 8,
+    distance: '115 km',
+    driveTime: '2 hrs return',
+  },
+  // Day 9 (Rose): Omarama → Christchurch via Burke Pass
+  {
+    coords: ROAD_DAY9_ROSE_NEW,
+    color: '#e74c3c',
+    day: { en: 'Day 9 – Rose: Omarama → Christchurch (via Burke Pass)', zh: '第9天 – Rose：奥马拉马 → 基督城（经Burke Pass）' },
+    dayNum: 9,
+    distance: '200 km',
+    driveTime: '2.5 hrs',
+  },
+  // Day 9 (Chris): Queenstown → Christchurch
   {
     coords: ROAD_DAY9_ROSE,
-    color: '#e74c3c',
-    day: { en: 'Day 9 – Rose: QT → Christchurch', zh: '第9天 – Rose：皇后镇 → 基督城' },
+    color: '#c0392b',
+    day: { en: 'Day 9 – Chris: QT → Christchurch (5-5.5 hrs)', zh: '第9天 – Chris：皇后镇 → 基督城（5-5.5小时）' },
     dayNum: 9,
     distance: '480 km',
-    driveTime: '6 hrs',
+    driveTime: '5.5 hrs',
   },
-  // Day 9 (Chris): Queenstown → Wanaka (Crown Range)
-  {
-    coords: ROAD_DAY9_CHRIS,
-    color: '#f39c12',
-    day: { en: 'Day 9 – Chris: Wanaka Day Trip', zh: '第9天 – Chris：瓦纳卡一日游' },
-    dayNum: 9,
-    distance: '130 km',
-    driveTime: '2 hrs',
-  },
-  // Day 10 (Chris): Queenstown → Christchurch
+  // Day 10 (Chris): Local Christchurch – Bottle Lake Forest Park
   {
     coords: ROAD_DAY10,
-    color: '#c0392b',
-    day: { en: 'Day 10 – Chris: QT → Christchurch', zh: '第10天 – Chris：皇后镇 → 基督城' },
+    color: '#27ae60',
+    day: { en: 'Day 10 – Chris: Christchurch local (Bottle Lake)', zh: '第10天 – Chris：基督城本地（瓶湖森林）' },
     dayNum: 10,
-    distance: '480 km',
-    driveTime: '6 hrs',
+    distance: '20 km',
+    driveTime: '20 min',
   },
 ];
