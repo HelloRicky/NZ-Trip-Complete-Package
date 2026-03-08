@@ -8,7 +8,6 @@ import { ITINERARY } from '@/data/itinerary';
 import { ROUTE_SEGMENTS } from '@/data/locations';
 import { DAY_IMAGES } from '@/data/images';
 import DayTimeline from '@/components/map/DayTimeline';
-import MapLegend from '@/components/map/MapLegend';
 import type { ItineraryActivity } from '@/types';
 import clsx from 'clsx';
 
@@ -21,17 +20,6 @@ const DayMap = dynamic(() => import('@/components/schedule/DayMap'), {
   ),
 });
 
-const TripMap = dynamic(() => import('@/components/map/TripMap'), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center h-full text-gray-500">
-      <div className="text-center">
-        <div className="text-3xl mb-2">🗺️</div>
-        <p>Loading map...</p>
-      </div>
-    </div>
-  ),
-});
 
 function activityTypeBadge(type: ItineraryActivity['type'], lang: 'en' | 'zh') {
   if (!type || type === 'normal') return null;
@@ -97,7 +85,6 @@ export default function SchedulePage() {
   const getSegment = (dayNum: number) =>
     ROUTE_SEGMENTS.find((seg) => seg.dayNum === dayNum) ?? null;
 
-  const activeSegment = lastOpenedDay ? getSegment(lastOpenedDay) : null;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
@@ -120,10 +107,8 @@ export default function SchedulePage() {
         }}
       />
 
-      {/* Two-column layout */}
-      <div className="flex flex-col lg:flex-row gap-4">
-        {/* Left: Day cards (scrollable on desktop) */}
-        <div className="flex-1 space-y-3 lg:overflow-y-auto lg:max-h-[calc(100vh-220px)] lg:pr-1 order-2 lg:order-1">
+      {/* Day cards */}
+      <div className="space-y-3 mt-4">
           {ITINERARY.map((day) => {
             const isOpen = openDays.has(day.day);
             const segment = getSegment(day.day);
@@ -284,65 +269,6 @@ export default function SchedulePage() {
               </div>
             );
           })}
-        </div>
-
-        {/* Right: Map + route info (sticky on desktop) */}
-        <div className="lg:w-[420px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3 order-1 lg:order-2">
-          {/* Map */}
-          <div
-            className="relative rounded-2xl shadow-md border border-gray-100 overflow-hidden h-64 lg:h-[380px]"
-          >
-            <TripMap language={language} activeDay={lastOpenedDay} />
-            <MapLegend language={language} />
-          </div>
-
-          {/* Route info panel */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
-            {activeSegment ? (
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="w-3 h-3 rounded-full shrink-0"
-                    style={{ background: activeSegment.color }}
-                  />
-                  <span className="text-sm font-semibold text-gray-700">
-                    {language === 'en' ? activeSegment.day.en : activeSegment.day.zh}
-                  </span>
-                </div>
-                {activeSegment.distance && (
-                  <div className="flex gap-4 text-xs text-gray-500 pl-5">
-                    <span>📏 ~{activeSegment.distance}</span>
-                    <span>⏱ ~{activeSegment.driveTime}</span>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div>
-                <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">
-                  {language === 'en' ? 'All Route Segments' : '所有路线段'}
-                </p>
-                <div className="space-y-1.5">
-                  {ROUTE_SEGMENTS.map((seg, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                      <span
-                        className="w-6 h-2 rounded shrink-0"
-                        style={{ background: seg.color }}
-                      />
-                      <span className="flex-1">
-                        {language === 'en' ? seg.day.en : seg.day.zh}
-                      </span>
-                      {seg.distance && (
-                        <span className="text-gray-400 shrink-0">~{seg.distance}</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <p className="text-xs text-gray-400 px-1">{t.map.click_marker}</p>
-        </div>
       </div>
     </div>
   );

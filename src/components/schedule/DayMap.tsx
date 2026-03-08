@@ -6,6 +6,15 @@ import { divIcon } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { LOCATIONS, ROUTE_SEGMENTS } from '@/data/locations';
+import {
+  ROAD_DAY1,
+  ROAD_DAY4,
+  ROAD_DAY5,
+  ROAD_DAY6,
+  ROAD_DAY8,
+  ROAD_DAY9_ROSE,
+  ROAD_DAY10,
+} from '@/data/road-routes';
 import type { Location } from '@/types';
 
 interface Props {
@@ -13,6 +22,17 @@ interface Props {
   language?: 'en' | 'zh';
   color?: string;
 }
+
+// Map day number → pre-fetched OSRM road route coords
+const ROAD_ROUTES: Record<number, [number, number][]> = {
+  1: ROAD_DAY1,
+  4: ROAD_DAY4,
+  5: ROAD_DAY5,
+  6: ROAD_DAY6,
+  8: ROAD_DAY8,
+  9: ROAD_DAY9_ROSE,
+  10: ROAD_DAY10,
+};
 
 // Fit the map to the given bounds when locations change
 function BoundsFitter({ locations }: { locations: Location[] }) {
@@ -50,8 +70,11 @@ export default function DayMap({ dayNum, language = 'en', color }: Props) {
   const segment = ROUTE_SEGMENTS.find((seg) => seg.dayNum === dayNum);
   const routeColor = color ?? segment?.color ?? '#3498db';
 
-  // Coordinates for the straight-line route between markers
-  const routeCoords = dayLocations.map((loc) => loc.coords) as [number, number][];
+  // Use pre-fetched OSRM road route if available, otherwise fall back to straight lines
+  const roadRoute = ROAD_ROUTES[dayNum];
+  const routeCoords: [number, number][] = roadRoute
+    ? roadRoute
+    : dayLocations.map((loc) => loc.coords) as [number, number][];
 
   if (dayLocations.length === 0) return null;
 
@@ -77,7 +100,7 @@ export default function DayMap({ dayNum, language = 'en', color }: Props) {
 
         <BoundsFitter locations={dayLocations} />
 
-        {/* Dashed route line connecting locations in order */}
+        {/* Road route line */}
         {routeCoords.length > 1 && (
           <>
             {/* Glow / shadow layer */}
@@ -91,14 +114,14 @@ export default function DayMap({ dayNum, language = 'en', color }: Props) {
                 lineJoin: 'round',
               }}
             />
-            {/* Main dashed line */}
+            {/* Main solid road route line (no dash — it's a real road trace) */}
             <Polyline
               positions={routeCoords}
               pathOptions={{
                 color: routeColor,
-                weight: 2.5,
+                weight: roadRoute ? 3 : 2.5,
                 opacity: 0.85,
-                dashArray: '8 6',
+                dashArray: roadRoute ? undefined : '8 6',
                 lineCap: 'round',
                 lineJoin: 'round',
               }}
