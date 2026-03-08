@@ -16,7 +16,7 @@ export const en = {
   // Home page
   home: {
     hero_title: 'New Zealand South Island Adventure',
-    hero_subtitle: 'April 11–20, 2026 · 7 Travelers · 3 Accommodation Bases',
+    hero_subtitle: 'April 11–20, 2026 · 7 Travelers · 5 Accommodation Bases',
     quick_stats: 'Trip Overview',
     travelers: 'Travelers',
     days: 'Days',

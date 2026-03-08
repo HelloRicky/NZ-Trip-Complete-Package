@@ -5,7 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 
 export const metadata: Metadata = {
   title: 'NZ South Island Trip 2026',
-  description: 'New Zealand South Island family trip – April 11–20, 2026. 7 travelers, 3 accommodation bases.',
+  description: 'New Zealand South Island family trip – April 11–20, 2026. 7 travelers, 5 accommodation bases.',
 };
 
 export default function RootLayout({

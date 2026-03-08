@@ -13,7 +13,7 @@ export const zh = {
   },
   home: {
     hero_title: '新西兰南岛探险之旅',
-    hero_subtitle: '2026年4月11-20日 · 7位旅行者 · 3个住宿基地',
+    hero_subtitle: '2026年4月11-20日 · 7位旅行者 · 5个住宿基地',
     quick_stats: '行程概览',
     travelers: '旅行者',
     days: '天',
