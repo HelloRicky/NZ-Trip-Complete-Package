@@ -25,11 +25,15 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+      - name: Deploy to Cloudflare Pages (with retry)
+        uses: nick-fields/retry@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy out --project-name=nz-trip-complete
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_wait_seconds: 15
+          command: npx wrangler@3 pages deploy out --project-name=nz-trip-complete
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Notify Discord
         if: always()
