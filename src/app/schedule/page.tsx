@@ -7,7 +7,6 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { ITINERARY } from '@/data/itinerary';
 import { ROUTE_SEGMENTS } from '@/data/locations';
 import { DAY_IMAGES } from '@/data/images';
-import DayTimeline from '@/components/map/DayTimeline';
 import type { ItineraryActivity } from '@/types';
 import clsx from 'clsx';
 
@@ -42,7 +41,6 @@ export default function SchedulePage() {
   const { t, language } = useLanguage();
   const [openDays, setOpenDays] = useState<Set<number>>(new Set([1]));
   const [lastOpenedDay, setLastOpenedDay] = useState<number | null>(1);
-  const [isPlaying, setIsPlaying] = useState(false);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
   const setCardRef = useCallback((day: number) => (el: HTMLDivElement | null) => {
@@ -79,8 +77,6 @@ export default function SchedulePage() {
     }, 50);
   };
 
-  const handlePlayPause = () => setIsPlaying((prev) => !prev);
-
   // Find route segment for a given day
   const getSegment = (dayNum: number) =>
     ROUTE_SEGMENTS.find((seg) => seg.dayNum === dayNum) ?? null;
@@ -92,20 +88,6 @@ export default function SchedulePage() {
         <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{t.schedule.title}</h1>
         <p className="text-gray-400 text-sm mt-1 font-medium">{t.schedule.subtitle}</p>
       </div>
-
-      <DayTimeline
-        activeDay={lastOpenedDay}
-        onDayChange={handleDayChange}
-        isPlaying={isPlaying}
-        onPlayPause={handlePlayPause}
-        language={language}
-        labels={{
-          play: t.map.play,
-          pause: t.map.pause,
-          show_all: t.map.show_all,
-          day: t.map.day,
-        }}
-      />
 
       {/* Day cards */}
       <div className="space-y-3 mt-4">
