@@ -1,10 +1,12 @@
 import type { Location, RouteSegment } from '@/types';
 import {
   ROAD_DAY1,
+  ROAD_DAY2,
+  ROAD_DAY3,
   ROAD_DAY4,
   ROAD_DAY5,
   ROAD_DAY6,
-  ROAD_DAY8,
+  ROAD_DAY7,
   ROAD_DAY10,
   ROAD_DAY8_ROSE,
   ROAD_DAY9_ROSE_NEW,
@@ -328,6 +330,24 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '180 km',
     driveTime: '2.5 hrs',
   },
+  // Day 2: Kaikoura local loop – Fishing Charter & Seal Colony
+  {
+    coords: ROAD_DAY2,
+    color: '#16a085',
+    day: { en: 'Day 2 – Kaikoura: Fishing & Seals', zh: '第2天 – 凯库拉：钓鱼 & 海豹' },
+    dayNum: 2,
+    distance: '12 km',
+    driveTime: '20 min',
+  },
+  // Day 3: Kaikoura local loop – EcoZip & Seal Kayaking
+  {
+    coords: ROAD_DAY3,
+    color: '#27ae60',
+    day: { en: 'Day 3 – Kaikoura: EcoZip & Kayaking', zh: '第3天 – 凯库拉：EcoZip & 皮划艇' },
+    dayNum: 3,
+    distance: '20 km',
+    driveTime: '30 min',
+  },
   // Day 4: Kaikoura → Lake Tekapo (SH1 → inland MacKenzie Country)
   {
     coords: ROAD_DAY4,
@@ -355,11 +375,11 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '260 km',
     driveTime: '3.5 hrs',
   },
-  // Day 7: Queenstown ↔ Glenorchy (both families – shortened)
+  // Day 7: Queenstown → Skyline Gondola → Bennett's Bluff → Glenorchy → Queenstown
   {
-    coords: ROAD_DAY8,
+    coords: ROAD_DAY7,
     color: '#3498db',
-    day: { en: 'Day 7 – Glenorchy Scenic Drive (Both Families)', zh: '第7天 – 格林诺奇风景驾车（两家人）' },
+    day: { en: 'Day 7 – QT → Skyline → Glenorchy (Both Families)', zh: '第7天 – 皇后镇 → 天际缆车 → 格林诺奇（两家人）' },
     dayNum: 7,
     distance: '95 km',
     driveTime: '1.5 hrs',
