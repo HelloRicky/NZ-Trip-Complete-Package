@@ -12,7 +12,6 @@ export const IMAGES = {
     queenstown: '/images/queenstown-lake.jpg',
     glenorchy: '/images/glenorchy-road.jpg',
     paradise: '/images/paradise-beech-forest.jpg',
-    wanaka: '/images/wanaka-tree.jpg',
     akaroa: '/images/akaroa-harbour.jpg',
   },
   activities: {

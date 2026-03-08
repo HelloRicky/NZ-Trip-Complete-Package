@@ -17,7 +17,7 @@ export const BUDGET_ITEMS: BudgetItem[] = [
     category: { en: '🎢 Activities', zh: '🎢 活动' },
     roseFamilyNZD: 800,
     chrisFamilyNZD: 900,
-    notes: { en: 'EcoZip, Seal Kayak, Skyline Gondola+Luge, Puzzling World, etc.', zh: 'EcoZip、海豹皮划艇、天际缆车+滑道、迷惑世界等。' },
+    notes: { en: 'EcoZip, Seal Kayak, Skyline Gondola+Luge, etc.', zh: 'EcoZip、海豹皮划艇、天际缆车+滑道等。' },
   },
   {
     category: { en: '🍽️ Food & Dining', zh: '🍽️ 餐饮' },
@@ -64,12 +64,6 @@ export const ACTIVITY_COSTS = [
     costNZD: 489,
     priority: 'medium' as const,
     day: 5,
-  },
-  {
-    name: { en: 'Puzzling World Wanaka', zh: '迷惑世界瓦纳卡' },
-    costNZD: 154,
-    priority: 'low' as const,
-    day: 7,
   },
   {
     name: { en: 'Akaroa Harbour Cruise (Chris only)', zh: '阿卡罗阿港湾游览（仅Chris一家）' },
