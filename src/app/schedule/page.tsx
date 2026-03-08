@@ -11,6 +11,15 @@ import DayTimeline from '@/components/map/DayTimeline';
 import type { ItineraryActivity } from '@/types';
 import clsx from 'clsx';
 
+const DayMap = dynamic(() => import('@/components/schedule/DayMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center" style={{ height: 300 }}>
+      <span className="text-gray-400 text-sm">Loading map…</span>
+    </div>
+  ),
+});
+
 const TripMap = dynamic(() => import('@/components/map/TripMap'), {
   ssr: false,
   loading: () => (
@@ -256,6 +265,18 @@ export default function SchedulePage() {
                           📝 {language === 'en' ? day.notes.en : day.notes.zh}
                         </div>
                       )}
+
+                      {/* Daily mini-map */}
+                      <div className="mt-4">
+                        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                          {language === 'en' ? "Today's Route" : '今日路线'}
+                        </p>
+                        <DayMap
+                          dayNum={day.day}
+                          language={language}
+                          color={segment?.color}
+                        />
+                      </div>
                     </div>
                   </div>
                 )}
