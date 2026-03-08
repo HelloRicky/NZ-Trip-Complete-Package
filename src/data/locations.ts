@@ -5,7 +5,6 @@ import {
   ROAD_DAY5,
   ROAD_DAY6,
   ROAD_DAY8,
-  ROAD_DAY9_ROSE,
   ROAD_DAY10,
   ROAD_DAY8_ROSE,
   ROAD_DAY9_ROSE_NEW,
@@ -198,8 +197,8 @@ export const LOCATIONS: Location[] = [
     type: 'base',
     icon: '🏕️',
     description: {
-      en: 'Base 3: Queenstown\n3 nights Rose (Apr 16-18)\n4 nights Chris (Apr 16-19)\nRecommended: Lakeview Holiday Park',
-      zh: '基地3：皇后镇\n3晚Rose（4月16-18日）\n4晚Chris（4月16-19日）\n推荐：Lakeview Holiday Park',
+      en: 'Base 3: Queenstown\n2 nights both families (Apr 16-17)\nBoth depart Apr 18 ~10 AM for Omarama\nRecommended: Lakeview Holiday Park',
+      zh: '基地3：皇后镇\n两家人各2晚（4月16-17日）\n两家人4月18日约10点一起出发奥马拉马\n推荐：Lakeview Holiday Park',
     },
     days: [6, 7, 8, 9],
   },
@@ -248,10 +247,10 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '📷',
     description: {
-      en: 'Days 7 & 8: Bennett\'s Bluff\nFamous viewpoint on QT-Glenorchy road\nAmazing photo spot!\nDay 7: both families; Day 8: Chris family',
-      zh: '第7 & 8天：Bennett\'s Bluff\n皇后镇-格林诺奇路上著名观景台\n绝佳拍照点！\n第7天：两家人；第8天：Chris一家',
+      en: 'Day 7: Bennett\'s Bluff\nFamous viewpoint on QT-Glenorchy road\nAmazing photo spot!\nBoth families together',
+      zh: '第7天：Bennett\'s Bluff\n皇后镇-格林诺奇路上著名观景台\n绝佳拍照点！\n两家人一起',
     },
-    days: [7, 8],
+    days: [7],
   },
   {
     id: 'glenorchy',
@@ -260,10 +259,10 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🏘️',
     description: {
-      en: 'Days 7 & 8: Glenorchy\nCharming lakeside village\nGlenorchy Walkway (lagoon)\nTrading Post lunch\nDay 7: quick stop (both); Day 8: full day (Chris)',
-      zh: '第7 & 8天：格林诺奇\n迷人湖畔小镇\n格林诺奇步道（泻湖）\n贸易所午餐\n第7天：短暂停留（两家人）；第8天：全天（Chris一家）',
+      en: 'Day 7: Glenorchy\nCharming lakeside village\nGlenorchy Walkway (lagoon)\nScenic stop – both families together',
+      zh: '第7天：格林诺奇\n迷人湖畔小镇\n格林诺奇步道（泻湖）\n风景停留 – 两家人一起',
     },
-    days: [7, 8],
+    days: [7],
   },
   {
     id: 'paradise',
@@ -272,10 +271,10 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🌲',
     description: {
-      en: 'Day 8: Paradise (Chris family)\nLord of the Rings filming!\nStunning beech forest\n25 min gravel road, FREE\nFull day – no time pressure!',
-      zh: '第8天：天堂谷（Chris一家）\n《指环王》拍摄地！\n壮观山毛榉森林\n25分钟砾石路，免费\n全天 – 不用赶时间！',
+      en: 'Paradise – Lord of the Rings filming location!\nStunning beech forest\n25 min gravel road from Glenorchy, FREE\n(Not on this itinerary – future visit!)',
+      zh: '天堂谷 – 《指环王》拍摄地！\n壮观山毛榉森林\n距格林诺奇25分钟砾石路，免费\n（本次行程未安排 – 下次再来！）',
     },
-    days: [8],
+    days: [],
   },
 
   // === DAY 8 (ROSE): OMARAMA & LAKE OHAU ===
@@ -286,8 +285,8 @@ export const LOCATIONS: Location[] = [
     type: 'activity',
     icon: '♨️',
     description: {
-      en: 'Day 8: Omarama Hot Tubs (Rose family)\n⭐ Outdoor cedar hot tubs\nStunning MacKenzie Country views\n~$50/person, book in advance!\nVery relaxing!',
-      zh: '第8天：奥马拉马温泉浴桶（Rose一家）\n⭐ 露天雪松温泉浴桶\n壮观的麦肯齐地区风景\n约$50/人，提前预订！\n非常放松！',
+      en: 'Day 8: Omarama Hot Tubs (Both Families!)\n⭐ Outdoor cedar hot tubs\nStunning MacKenzie Country views\n~$50/person, book in advance!\nVery relaxing!',
+      zh: '第8天：奥马拉马温泉浴桶（两家人！）\n⭐ 露天雪松温泉浴桶\n壮观的麦肯齐地区风景\n约$50/人，提前预订！\n非常放松！',
     },
     days: [8],
   },
@@ -298,8 +297,8 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🏞️',
     description: {
-      en: 'Day 8: Lake Ohau (Rose family)\nBeautiful remote alpine lake\nShort drive from Omarama\nOptional short walk on the shore\nFREE',
-      zh: '第8天：奥豪湖（Rose一家）\n美丽偏远的高山湖\n距奥马拉马短途驾车\n可在湖边短途步行\n免费',
+      en: 'Day 8: Lake Ohau (Both Families)\nBeautiful remote alpine lake\nShort drive from Omarama\nOptional short walk on the shore\nFREE',
+      zh: '第8天：奥豪湖（两家人）\n美丽偏远的高山湖\n距奥马拉马短途驾车\n可在湖边短途步行\n免费',
     },
     days: [8],
   },
@@ -365,41 +364,23 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '95 km',
     driveTime: '1.5 hrs',
   },
-  // Day 8 (Rose): Queenstown → Omarama via Cromwell, Lindis Pass
+  // Day 8 (Both Families): Queenstown → Omarama via Cromwell, Lindis Pass
   {
     coords: ROAD_DAY8_ROSE,
     color: '#e74c3c',
-    day: { en: 'Day 8 – Rose: QT → Omarama (via Cromwell, Lindis Pass)', zh: '第8天 – Rose：皇后镇 → 奥马拉马（经克伦威尔、Lindis Pass）' },
+    day: { en: 'Day 8 – Both Families: QT → Omarama (via Cromwell, Lindis Pass)', zh: '第8天 – 两家人：皇后镇 → 奥马拉马（经克伦威尔、Lindis Pass）' },
     dayNum: 8,
     distance: '230 km',
     driveTime: '3 hrs',
   },
-  // Day 8 (Chris): Queenstown ↔ Glenorchy & Paradise (full day)
-  {
-    coords: ROAD_DAY8,
-    color: '#f39c12',
-    day: { en: 'Day 8 – Chris: Full Day Glenorchy & Paradise', zh: '第8天 – Chris：全天格林诺奇 & 天堂谷' },
-    dayNum: 8,
-    distance: '115 km',
-    driveTime: '2 hrs return',
-  },
-  // Day 9 (Rose): Omarama → Christchurch via Burke Pass
+  // Day 9 (Both Families): Omarama → Christchurch via Burke Pass
   {
     coords: ROAD_DAY9_ROSE_NEW,
     color: '#e74c3c',
-    day: { en: 'Day 9 – Rose: Omarama → Christchurch (via Burke Pass)', zh: '第9天 – Rose：奥马拉马 → 基督城（经Burke Pass）' },
+    day: { en: 'Day 9 – Both Families: Omarama → Christchurch (via Burke Pass)', zh: '第9天 – 两家人：奥马拉马 → 基督城（经Burke Pass）' },
     dayNum: 9,
     distance: '200 km',
     driveTime: '2.5 hrs',
-  },
-  // Day 9 (Chris): Queenstown → Christchurch
-  {
-    coords: ROAD_DAY9_ROSE,
-    color: '#c0392b',
-    day: { en: 'Day 9 – Chris: QT → Christchurch (5-5.5 hrs)', zh: '第9天 – Chris：皇后镇 → 基督城（5-5.5小时）' },
-    dayNum: 9,
-    distance: '480 km',
-    driveTime: '5.5 hrs',
   },
   // Day 10 (Chris): Local Christchurch – Bottle Lake Forest Park
   {

@@ -123,14 +123,14 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
     location: { en: 'Queenstown', zh: '皇后镇' },
     nights: 2,
     dates: {
-      en: 'April 16–17 (Rose\'s family, 2 nights) / April 16–18 (Chris\'s family, 3 nights)',
-      zh: '4月16-17日（Rose一家，2晚）/ 4月16-18日（Chris一家，3晚）',
+      en: 'April 16–17 (Both families, 2 nights)',
+      zh: '4月16-17日（两家人，各2晚）',
     },
     checkIn: 'Wednesday April 16, afternoon (~3 PM)',
-    checkOut: 'Friday April 18 morning (Rose, departs for Omarama) / Saturday April 19 morning (Chris, departs for Christchurch)',
+    checkOut: 'Friday April 18 morning (~10 AM – both families depart for Omarama)',
     purpose: {
-      en: 'Adventure hub! Skyline Gondola & Luge (Day 7, both families), Glenorchy shortened (Day 7), farewell dinner (Day 7). Day 8: Rose heads to Omarama; Chris does full Glenorchy & Paradise.',
-      zh: '冒险中心！天际缆车和滑道（第7天，两家人）、缩短版格林诺奇（第7天）、告别晚餐（第7天）。第8天：Rose前往奥马拉马；Chris全天格林诺奇和天堂谷。',
+      en: 'Adventure hub! Skyline Gondola & Luge (Day 7, both families), Glenorchy scenic drive (Day 7, both families). Day 8: BOTH families depart together for Omarama.',
+      zh: '冒险中心！天际缆车和滑道（第7天，两家人）、格林诺奇风景驾车（第7天，两家人）。第8天：两家人一起出发前往奥马拉马。',
     },
     options: [
       {
@@ -167,23 +167,22 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
     notes: [
       { en: 'Book powered sites well in advance – Queenstown parks are very popular', zh: '提早预订通电营位 – 皇后镇营地非常抢手' },
       { en: 'Lakeview has the best location for walking to activities', zh: 'Lakeview位置最佳，步行可达各项活动' },
-      { en: 'Rose\'s family: 2 nights (Apr 16–17). Departs Apr 18 ~10 AM for Omarama.', zh: 'Rose一家：2晚（4月16-17日）。4月18日约10点出发前往奥马拉马。' },
-      { en: 'Chris\'s family: 3 nights (Apr 16–18). Departs Apr 19 ~10 AM for Christchurch.', zh: 'Chris一家：3晚（4月16-18日）。4月19日约10点出发前往基督城。' },
-      { en: 'Both families: Day 7 (Apr 17) together – Skyline + Glenorchy + farewell dinner', zh: '两家人：第7天（4月17日）一起 – 天际缆车 + 格林诺奇 + 告别晚餐' },
+      { en: 'Both families: 2 nights (Apr 16–17). Depart together Apr 18 ~10 AM for Omarama.', zh: '两家人：各2晚（4月16-17日）。4月18日约10点一起出发前往奥马拉马。' },
+      { en: 'Both families: Day 7 (Apr 17) together – Skyline + Glenorchy + dinner', zh: '两家人：第7天（4月17日）一起 – 天际缆车 + 格林诺奇 + 晚餐' },
       { en: 'Book Skyline Gondola + Luge and farewell dinner restaurant in advance', zh: '提前预订天际缆车+滑道和告别晚餐餐厅' },
     ],
   },
   {
-    id: 'base4-rose',
-    name: { en: 'Base 4 (Rose): Omarama', zh: '基地4（Rose）：奥马拉马' },
+    id: 'base4',
+    name: { en: 'Base 4: Omarama', zh: '基地4：奥马拉马' },
     location: { en: 'Omarama, MacKenzie Country', zh: '奥马拉马，麦肯齐地区' },
     nights: 1,
-    dates: { en: 'April 18 (Rose\'s family, 1 night)', zh: '4月18日（Rose一家，1晚）' },
-    checkIn: 'Saturday April 18, evening (~6 PM)',
-    checkOut: 'Sunday April 19, morning (~9 AM)',
+    dates: { en: 'April 18 (Both families, 1 night each)', zh: '4月18日（两家人，各1晚）' },
+    checkIn: 'Saturday April 18, afternoon/evening (~6 PM)',
+    checkOut: 'Sunday April 19, morning (~9:30 AM)',
     purpose: {
-      en: 'Relaxing overnight stop between Queenstown and Christchurch. Hot tubs, mountain views, and a night under MacKenzie Country dark skies.',
-      zh: '皇后镇和基督城之间的放松过夜站。温泉浴桶、山景，以及在麦肯齐地区暗夜星空下的夜晚。',
+      en: 'Relaxing overnight stop for BOTH families between Queenstown and Christchurch. Hot tubs together, mountain views, and a last night under MacKenzie Country dark skies.',
+      zh: '两家人在皇后镇和基督城之间的放松过夜站。一起泡温泉浴桶、山景，以及在麦肯齐地区暗夜星空下的最后一晚。',
     },
     options: [
       {
@@ -215,10 +214,10 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
       },
     ],
     notes: [
-      { en: 'Omarama Hot Tubs MUST be booked in advance – very popular! ~$50/person', zh: '奥马拉马温泉浴桶必须提前预订 – 非常抢手！约$50/人' },
-      { en: 'Lake Ohau is ~30 min drive from Omarama – worthwhile for the scenery', zh: '奥豪湖距奥马拉马约30分钟驾车 – 风景值得一看' },
-      { en: 'Rose\'s family: just 2.5 hrs to Christchurch next morning – very relaxed!', zh: 'Rose一家：第二天早上到基督城只需2.5小时 – 非常轻松！' },
-      { en: 'Dark skies here are excellent – bring kids out for stargazing after dinner', zh: '这里星空极佳 – 晚餐后带孩子们出来观星' },
+      { en: 'Omarama Hot Tubs MUST be booked in advance for BOTH families – very popular! ~$50/person', zh: '两家人都要提前预订奥马拉马温泉浴桶 – 非常抢手！约$50/人' },
+      { en: 'Lake Ohau is ~30 min drive from Omarama – worthwhile for the scenery (both families)', zh: '奥豪湖距奥马拉马约30分钟驾车 – 风景值得一看（两家人）' },
+      { en: 'Both families: just 2.5 hrs to Christchurch next morning – very relaxed!', zh: '两家人：第二天早上到基督城只需2.5小时 – 非常轻松！' },
+      { en: 'Dark skies here are excellent – last night together, bring kids out for stargazing!', zh: '这里星空极佳 – 最后一晚一起观星！' },
     ],
   },
   {
@@ -252,9 +251,10 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
       },
     ],
     notes: [
+      { en: 'Chris\'s family only – Rose\'s family departs NZ from Christchurch on Day 9 (does not stay overnight)', zh: '仅Chris一家 – Rose一家在第9天从基督城离开新西兰（不在此过夜）' },
       { en: 'Bottle Lake Forest Park is the perfect final morning activity – pine mushroom foraging (FREE)', zh: '瓶湖森林公园是完美的最后早晨活动 – 采松茸（免费）' },
       { en: 'JUCY campervan return is at Christchurch Airport – ~15 min from here', zh: 'JUCY房车归还在基督城机场 – 距这里约15分钟' },
-      { en: 'Chris\'s flight at 7 PM – plenty of time for morning mushrooms + 1 PM campervan return', zh: 'Chris的航班在晚上7点 – 有足够时间早上采蘑菇 + 下午1点归还房车' },
+      { en: 'Chris\'s flight at 7 PM – sleep in, 10 AM mushrooms, 1:30 PM campervan return, 3 PM airport', zh: 'Chris的航班在晚上7点 – 睡懒觉，10点采蘑菇，1:30归还房车，3点到机场' },
     ],
   },
 ];
