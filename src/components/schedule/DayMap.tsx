@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Polyline, useMap } from 'react-leaflet';
 import { divIcon } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { LOCATIONS, ROUTE_SEGMENTS } from '@/data/locations';
+import { LOCATIONS, ROUTE_SEGMENTS, DAY_ORDER } from '@/data/locations';
 import {
   ROAD_DAY1,
   ROAD_DAY4,
@@ -61,10 +61,16 @@ function BoundsFitter({ locations }: { locations: Location[] }) {
 }
 
 export default function DayMap({ dayNum, language = 'en', color }: Props) {
-  // Get locations for this day, in array order (which matches activity order in data)
-  const dayLocations = LOCATIONS.filter(
-    (loc) => loc.days?.includes(dayNum) ?? false
-  );
+  // Get locations for this day in explicit route order (travel sequence)
+  const dayLocationIds = DAY_ORDER[dayNum] || [];
+  const seen = new Set<string>();
+  const dayLocations = dayLocationIds
+    .map((id) => LOCATIONS.find((loc) => loc.id === id))
+    .filter((loc): loc is Location => {
+      if (!loc || seen.has(loc.id)) return false;
+      seen.add(loc.id);
+      return true;
+    });
 
   // Get the segment color for this day (use first matching segment)
   const segment = ROUTE_SEGMENTS.find((seg) => seg.dayNum === dayNum);

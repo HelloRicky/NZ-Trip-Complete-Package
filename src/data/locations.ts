@@ -412,3 +412,17 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     driveTime: '20 min',
   },
 ];
+
+// Explicit route order per day (location IDs in travel sequence)
+export const DAY_ORDER: Record<number, string[]> = {
+  1: ['christchurch-airport', 'goose-bay', 'kaikoura'],
+  2: ['kaikoura', 'fishing-charter', 'point-kean', 'kaikoura'],
+  3: ['kaikoura', 'ecozip-kaikoura', 'seal-kayak', 'point-kean', 'kaikoura'],
+  4: ['kaikoura', 'church-good-shepherd', 'tekapo'],
+  5: ['tekapo', 'lake-pukaki', 'mtcook-village', 'hooker-valley', 'tekapo'],
+  6: ['tekapo', 'lindis-pass', 'cromwell', 'queenstown-gardens', 'queenstown'],
+  7: ['queenstown', 'skyline-gondola', 'bennetts-bluff', 'glenorchy', 'queenstown'],
+  8: ['queenstown', 'cromwell', 'lindis-pass', 'lake-ohau', 'omarama-hot-tubs'],
+  9: ['omarama-hot-tubs', 'christchurch-airport'],
+  10: ['christchurch-airport', 'bottle-lake-forest', 'christchurch-airport'],
+};
