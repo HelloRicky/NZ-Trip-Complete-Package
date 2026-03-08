@@ -26,6 +26,8 @@ export const IMAGES = {
     'puzzling-world': '/images/activity-puzzling-world.jpg',
     'hooker-valley': '/images/activity-hooker-valley.jpg',
     'akaroa-cruise': '/images/activity-dolphin-cruise.jpg',
+    'omarama-hot-tubs': '/images/activity-omarama-hot-tubs.jpg', // TODO: add real image
+    'bottle-lake': '/images/activity-bottle-lake-mushrooms.jpg', // TODO: add real image
   },
   campervan: '/images/Rose-Family-Campervan-JUCY-BigKahuna-Apr11-19.jpg',
   misc: {

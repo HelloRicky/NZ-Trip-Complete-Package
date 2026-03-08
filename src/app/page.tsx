@@ -30,13 +30,14 @@ export default function HomePage() {
   }, []);
 
   const highlights = [
+    { emoji: '🎣', en: 'Kaikoura Fishing Charter', zh: '凯库拉钓鱼之旅（第2天）', img: IMAGES.activities.fishing },
     { emoji: '🌲', en: 'EcoZip Ziplines – Kaikoura', zh: 'EcoZip滑索 – 凯库拉', img: IMAGES.activities.ecozip },
     { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉', img: IMAGES.activities['seal-kayak'] },
     { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山', img: IMAGES.activities['hooker-valley'] },
     { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇', img: IMAGES.activities['skyline-gondola'] },
     { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）', img: IMAGES.destinations.glenorchy },
-    { emoji: '🧩', en: 'Puzzling World – Wanaka', zh: '迷惑世界 – 瓦纳卡', img: IMAGES.activities['puzzling-world'] },
-    { emoji: '🐬', en: "Akaroa Dolphins – Chris's family", zh: '阿卡罗阿海豚 – Chris一家', img: IMAGES.activities['akaroa-cruise'] },
+    { emoji: '🛁', en: "Omarama Hot Tubs – Rose's family", zh: '奥马拉马温泉浴缸 – Rose一家（第8天）', img: IMAGES.activities['omarama-hot-tubs'] },
+    { emoji: '🍄', en: "Bottle Lake Mushroom Picking – Chris's family", zh: '瓶湖采蘑菇 – Chris一家（第10天）', img: IMAGES.activities['bottle-lake'] },
   ];
 
   const roseFamilyCount = TRAVELERS.filter((t) => t.family === 'rose').length;
@@ -131,7 +132,7 @@ export default function HomePage() {
           {[
             { label: language === 'en' ? 'Flights (EK412 / EK413)' : '航班（EK412/EK413）', status: '✅', detail: language === 'en' ? 'Confirmed – Booking #750492842' : '已确认 – 预订号#750492842' },
             { label: language === 'en' ? 'JUCY Big Kahuna Campervan' : 'JUCY Big Kahuna房车', status: '✅', detail: language === 'en' ? `Confirmed – ${CAMPERVAN.bookingRef}` : `已确认 – ${CAMPERVAN.bookingRef}` },
-            { label: language === 'en' ? 'Accommodation (3 bases)' : '住宿（3个基地）', status: '⏳', detail: language === 'en' ? 'Not yet booked – book soon!' : '尚未预订 – 尽快预订！' },
+            { label: language === 'en' ? 'Accommodation (5 bases)' : '住宿（5个基地）', status: '⏳', detail: language === 'en' ? 'Not yet booked – book soon!' : '尚未预订 – 尽快预订！' },
             { label: language === 'en' ? 'EcoZip Adventures' : 'EcoZip探险', status: '⏳', detail: language === 'en' ? 'Not yet booked – HIGH PRIORITY' : '尚未预订 – 高优先级' },
             { label: language === 'en' ? 'Skyline Gondola + Luge' : '天际缆车 + 滑道', status: '⏳', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
           ].map(({ label, status, detail }) => (
