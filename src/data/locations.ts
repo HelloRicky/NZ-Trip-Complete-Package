@@ -51,16 +51,28 @@ export const LOCATIONS: Location[] = [
     days: [1],
   },
   {
+    id: 'fishing-charter',
+    name: { en: 'Kaikoura Fishing Charter', zh: '凯库拉钓鱼游船' },
+    coords: [-42.4050, 173.6960],
+    type: 'activity',
+    icon: '🎣',
+    description: {
+      en: 'Day 2: Fishing Charter\nDeep sea fishing off Kaikoura coast\nBlue cod, groper & more!\n~3-4 hours, ~$700-1,400 for group\nBook in advance!',
+      zh: '第2天：钓鱼游船\n凯库拉海岸深海钓鱼\n蓝鳕鱼、笛鲷等！\n约3-4小时，团体约$700-1,400\n提前预订！',
+    },
+    days: [2],
+  },
+  {
     id: 'ecozip-kaikoura',
     name: { en: 'EcoZip Adventures', zh: 'EcoZip探险' },
     coords: [-42.4167, 173.6500],
     type: 'activity',
     icon: '🌲',
     description: {
-      en: 'Day 2: EcoZip Adventures\n8 ziplines through native forest\n~3 hours, min age 7\n~$1,100 for 7 people',
-      zh: '第2天：EcoZip探险\n8条滑索穿越原生森林\n约3小时，最低年龄7岁\n7人约$1,100',
+      en: 'Day 3: EcoZip Adventures\n8 ziplines through native forest\n~3 hours, min age 7\n~$1,100 for 7 people',
+      zh: '第3天：EcoZip探险\n8条滑索穿越原生森林\n约3小时，最低年龄7岁\n7人约$1,100',
     },
-    days: [2],
+    days: [3],
   },
   {
     id: 'seal-kayak',
@@ -69,10 +81,10 @@ export const LOCATIONS: Location[] = [
     type: 'activity',
     icon: '🛶',
     description: {
-      en: 'Day 2: Seal Kayaking\nPaddle with wild seals!\n2-2.5 hours, will get wet\n~$670 for group',
-      zh: '第2天：海豹皮划艇\n与野生海豹同游！\n2-2.5小时，会弄湿\n团体约$670',
+      en: 'Day 3: Seal Kayaking\nPaddle with wild seals!\n2-2.5 hours, will get wet\n~$670 for group',
+      zh: '第3天：海豹皮划艇\n与野生海豹同游！\n2-2.5小时，会弄湿\n团体约$670',
     },
-    days: [2],
+    days: [3],
   },
   {
     id: 'point-kean',
@@ -86,31 +98,19 @@ export const LOCATIONS: Location[] = [
     },
     days: [2, 3],
   },
-  {
-    id: 'whale-watch',
-    name: { en: 'Whale Watch Kaikoura', zh: '凯库拉观鲸' },
-    coords: [-42.4167, 173.6833],
-    type: 'activity',
-    icon: '🐋',
-    description: {
-      en: 'Day 3: Optional whale watching\nSperm whales, dolphins, albatross\n2.5 hr tour, ~$1,020 for 7\nBook in advance!',
-      zh: '第3天：可选观鲸\n抹香鲸、海豚、信天翁\n2.5小时，7人约$1,020\n提前预订！',
-    },
-    days: [3],
-  },
 
-  // === DAY 4: DRIVE TO MT COOK ===
+  // === BASE 2: LAKE TEKAPO (2 nights) ===
   {
     id: 'tekapo',
     name: { en: 'Lake Tekapo', zh: '蒂卡波湖' },
     coords: [-44.0048, 170.4772],
-    type: 'scenic',
-    icon: '💙',
+    type: 'base',
+    icon: '🏕️',
     description: {
-      en: 'Day 4: Lake Tekapo stop\nTurquoise glacier-fed lake\nLakefront walk\nCoffee at village café',
-      zh: '第4天：蒂卡波湖停留\n碧绿冰川湖\n湖畔漫步\n村庄咖啡馆喝咖啡',
+      en: 'Base 2: Lake Tekapo\n2 nights (Apr 14-15)\nStunning turquoise lake\nDark Sky Reserve – incredible stargazing!\nDay trip to Mt Cook on Day 5',
+      zh: '基地2：蒂卡波湖\n2晚（4月14-15日）\n令人叹为观止的碧蓝湖\n暗夜保护区 – 绝佳观星！\n第5天一日游去库克山',
     },
-    days: [4],
+    days: [4, 5],
   },
   {
     id: 'church-good-shepherd',
@@ -119,8 +119,8 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '⛪',
     description: {
-      en: 'Day 4: Iconic church\nNZ\'s most photographed church\nStunning lake backdrop\nFREE entry',
-      zh: '第4天：标志性教堂\n新西兰最上镜的教堂\n壮观湖景背景\n免费参观',
+      en: 'Day 4: Iconic church\nNZ\'s most photographed church\nStunning turquoise lake backdrop\nFREE entry – walk from campground',
+      zh: '第4天：标志性教堂\n新西兰最上镜的教堂\n壮观碧蓝湖景背景\n免费参观 – 从营地步行可达',
     },
     days: [4],
   },
@@ -131,25 +131,13 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '📷',
     description: {
-      en: 'Day 4: Lake Pukaki\nIntense turquoise colour\nMt Cook backdrop\nAmazing photo spot!',
-      zh: '第4天：普卡基湖\n深邃碧绿色\n库克山背景\n绝佳拍照点！',
+      en: 'Day 5: Lake Pukaki\nIntense turquoise colour\nMt Cook backdrop\nAmazing photo spot!\nOn the way to Mt Cook day trip',
+      zh: '第5天：普卡基湖\n深邃碧绿色\n库克山背景\n绝佳拍照点！\n库克山一日游途中',
     },
-    days: [4],
+    days: [5],
   },
 
-  // === BASE 2: MT COOK (2 nights) ===
-  {
-    id: 'glentanner',
-    name: { en: 'Glentanner Park', zh: 'Glentanner营地' },
-    coords: [-43.7333, 170.0833],
-    type: 'base',
-    icon: '🏕️',
-    description: {
-      en: 'Base 2: Glentanner\n2 nights (Apr 14-15)\nOnly powered camping near Mt Cook!\nRestaurant, stargazing, glacier tours',
-      zh: '基地2：Glentanner\n2晚（4月14-15日）\n库克山附近唯一通电营地！\n餐厅、观星、冰川游',
-    },
-    days: [4, 5],
-  },
+  // === DAY 5: MT COOK DAY TRIP (from Lake Tekapo) ===
   {
     id: 'mtcook-village',
     name: { en: 'Mt Cook Village', zh: '库克山村' },
@@ -157,8 +145,8 @@ export const LOCATIONS: Location[] = [
     type: 'scenic',
     icon: '🏔️',
     description: {
-      en: 'Day 5: Mt Cook Village\nSir Edmund Hillary Centre\nCafé & visitor centre\n25 min from Glentanner',
-      zh: '第5天：库克山村\n埃德蒙·希拉里爵士中心\n咖啡厅和游客中心\n距Glentanner 25分钟',
+      en: 'Day 5: Mt Cook Village (day trip)\nSir Edmund Hillary Alpine Centre\nCafé & visitor centre\n~1.5 hrs from Lake Tekapo',
+      zh: '第5天：库克山村（一日游）\n埃德蒙·希拉里爵士高山中心\n咖啡厅和游客中心\n距蒂卡波湖约1.5小时',
     },
     days: [5],
   },
@@ -169,8 +157,8 @@ export const LOCATIONS: Location[] = [
     type: 'activity',
     icon: '🥾',
     description: {
-      en: 'Day 5: Hooker Valley Track\n⭐ HIGHLIGHT! 10km return\n3 swing bridges, glacier lake\n3-4 hours, FREE',
-      zh: '第5天：Hooker Valley步道\n⭐ 亮点！往返10公里\n3座吊桥，冰川湖\n3-4小时，免费',
+      en: 'Day 5: Hooker Valley Track\n⭐ HIGHLIGHT! 10km return\n3 swing bridges, glacier lake\n3-4 hours, FREE\nDay trip from Lake Tekapo',
+      zh: '第5天：Hooker Valley步道\n⭐ 亮点！往返10公里\n3座吊桥，冰川湖\n3-4小时，免费\n从蒂卡波湖出发一日游',
     },
     days: [5],
   },
@@ -350,31 +338,31 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '180 km',
     driveTime: '2.5 hrs',
   },
-  // Day 4: Kaikoura → Lake Tekapo → Mt Cook (SH1 → SH8 → SH80)
+  // Day 4: Kaikoura → Lake Tekapo (SH1 → inland MacKenzie Country)
   {
     coords: ROAD_DAY4,
     color: '#9b59b6',
-    day: { en: 'Day 4 – Kaikoura → Mt Cook', zh: '第4天 – 凯库拉 → 库克山' },
+    day: { en: 'Day 4 – Kaikoura → Lake Tekapo', zh: '第4天 – 凯库拉 → 蒂卡波湖' },
     dayNum: 4,
-    distance: '380 km',
-    driveTime: '5 hrs',
+    distance: '320 km',
+    driveTime: '4.5 hrs',
   },
-  // Day 5: Glentanner → Hooker Valley (return)
+  // Day 5: Lake Tekapo → Mt Cook → Lake Tekapo (day trip loop)
   {
     coords: ROAD_DAY5,
     color: '#1abc9c',
-    day: { en: 'Day 5 – Hooker Valley Track', zh: '第5天 – Hooker Valley步道' },
+    day: { en: 'Day 5 – Mt Cook Day Trip (from Lake Tekapo)', zh: '第5天 – 库克山一日游（从蒂卡波湖出发）' },
     dayNum: 5,
-    distance: '25 km',
-    driveTime: '25 min',
+    distance: '190 km',
+    driveTime: '3 hrs return',
   },
-  // Day 6: Mt Cook → Queenstown (SH80 → SH8 via Lindis Pass)
+  // Day 6: Lake Tekapo → Queenstown (via Lindis Pass & Cromwell)
   {
     coords: ROAD_DAY6,
     color: '#e67e22',
-    day: { en: 'Day 6 – Mt Cook → Queenstown', zh: '第6天 – 库克山 → 皇后镇' },
+    day: { en: 'Day 6 – Lake Tekapo → Queenstown', zh: '第6天 – 蒂卡波湖 → 皇后镇' },
     dayNum: 6,
-    distance: '280 km',
+    distance: '260 km',
     driveTime: '3.5 hrs',
   },
   // Day 8: Queenstown ↔ Glenorchy/Paradise
