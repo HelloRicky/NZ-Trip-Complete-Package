@@ -121,13 +121,13 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
     id: 'base3',
     name: { en: 'Base 3: Queenstown', zh: '基地3：皇后镇' },
     location: { en: 'Queenstown', zh: '皇后镇' },
-    nights: 3,
+    nights: 2,
     dates: {
-      en: 'April 16–18 (Rose\'s family, 3 nights) / April 16–19 (Chris\'s family, 4 nights)',
-      zh: '4月16-18日（Rose一家，3晚）/ 4月16-19日（Chris一家，4晚）',
+      en: 'April 16–17 (Rose\'s family, 2 nights) / April 16–18 (Chris\'s family, 3 nights)',
+      zh: '4月16-17日（Rose一家，2晚）/ 4月16-18日（Chris一家，3晚）',
     },
     checkIn: 'Wednesday April 16, afternoon (~3 PM)',
-    checkOut: 'Saturday April 19 (Rose, departs for Omarama Apr 18) / Sunday April 20 (Chris, departs for Christchurch Apr 19)',
+    checkOut: 'Friday April 18 morning (Rose, departs for Omarama) / Saturday April 19 morning (Chris, departs for Christchurch)',
     purpose: {
       en: 'Adventure hub! Skyline Gondola & Luge (Day 7, both families), Glenorchy shortened (Day 7), farewell dinner (Day 7). Day 8: Rose heads to Omarama; Chris does full Glenorchy & Paradise.',
       zh: '冒险中心！天际缆车和滑道（第7天，两家人）、缩短版格林诺奇（第7天）、告别晚餐（第7天）。第8天：Rose前往奥马拉马；Chris全天格林诺奇和天堂谷。',
@@ -167,8 +167,8 @@ export const ACCOMMODATION_BASES: AccommodationBase[] = [
     notes: [
       { en: 'Book powered sites well in advance – Queenstown parks are very popular', zh: '提早预订通电营位 – 皇后镇营地非常抢手' },
       { en: 'Lakeview has the best location for walking to activities', zh: 'Lakeview位置最佳，步行可达各项活动' },
-      { en: 'Rose\'s family: 3 nights (Apr 16-18). Departs Apr 18 ~10 AM for Omarama.', zh: 'Rose一家：3晚（4月16-18日）。4月18日约10点出发前往奥马拉马。' },
-      { en: 'Chris\'s family: 4 nights (Apr 16-19). Departs Apr 19 ~10 AM for Christchurch.', zh: 'Chris一家：4晚（4月16-19日）。4月19日约10点出发前往基督城。' },
+      { en: 'Rose\'s family: 2 nights (Apr 16–17). Departs Apr 18 ~10 AM for Omarama.', zh: 'Rose一家：2晚（4月16-17日）。4月18日约10点出发前往奥马拉马。' },
+      { en: 'Chris\'s family: 3 nights (Apr 16–18). Departs Apr 19 ~10 AM for Christchurch.', zh: 'Chris一家：3晚（4月16-18日）。4月19日约10点出发前往基督城。' },
       { en: 'Both families: Day 7 (Apr 17) together – Skyline + Glenorchy + farewell dinner', zh: '两家人：第7天（4月17日）一起 – 天际缆车 + 格林诺奇 + 告别晚餐' },
       { en: 'Book Skyline Gondola + Luge and farewell dinner restaurant in advance', zh: '提前预订天际缆车+滑道和告别晚餐餐厅' },
     ],
