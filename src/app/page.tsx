@@ -54,7 +54,7 @@ export default function HomePage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/80 to-teal-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
           <div className="text-4xl mb-3">🇳🇿</div>
           <h1 className="text-2xl md:text-3xl font-bold mb-2">{t.home.hero_title}</h1>
