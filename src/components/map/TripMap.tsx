@@ -41,6 +41,9 @@ const typeColors: Record<Location['type'], string> = {
   base: '#e74c3c',
   daytrip: '#f39c12',
   activity: '#3498db',
+  transport: '#9b59b6',
+  scenic: '#27ae60',
+  food: '#e67e22',
 };
 
 // ── Map controller ────────────────────────────────────────────────────────────

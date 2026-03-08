@@ -7,7 +7,7 @@ export interface Location {
   id: string;
   name: BilingualText;
   coords: [number, number];
-  type: 'base' | 'daytrip' | 'activity';
+  type: 'base' | 'daytrip' | 'activity' | 'transport' | 'scenic' | 'food';
   icon: string;
   description: BilingualText;
   days?: number[];
