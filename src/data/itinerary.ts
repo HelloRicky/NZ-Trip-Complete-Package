@@ -241,7 +241,7 @@ export const ITINERARY: ItineraryDay[] = [
         title: { en: 'Afternoon – Glenorchy Scenic Drive (Shortened)', zh: '下午 – 格林诺奇风景驾车（缩短版）' },
         activities: [
           { time: '2:30 PM', emoji: '🚗', name: { en: 'Scenic drive to Glenorchy', zh: '风景驾车前往格林诺奇' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: '⭐ One of world\'s most beautiful drives! Stop at Bennett\'s Bluff for photos.', zh: '⭐ 世界最美公路之一！在Bennett\'s Bluff停留拍照。' } },
-          { time: '3:30 PM', emoji: '🏘️', name: { en: 'Glenorchy Village (quick stop)', zh: '格林诺奇小镇（短暂停留）' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: 'Charming village stop. Skip Paradise today – Chris\'s family will do it properly tomorrow!', zh: '迷人小镇短暂停留。今天跳过天堂谷 – Chris一家明天再细细游览！' } },
+          { time: '3:30 PM', emoji: '🏘️', name: { en: 'Glenorchy Village (quick stop)', zh: '格林诺奇小镇（短暂停留）' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: 'Quick stop at the charming village – save time for the drive back to Queenstown', zh: '迷人小镇短暂停留 – 为返回皇后镇的路途留出时间' } },
           { time: '5:00 PM', emoji: '🚗', name: { en: 'Return to Queenstown', zh: '返回皇后镇' }, type: 'normal' },
         ],
       },
