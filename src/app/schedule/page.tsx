@@ -91,9 +91,9 @@ export default function SchedulePage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      <div className="mb-4">
-        <h1 className="text-2xl font-bold text-gray-800">{t.schedule.title}</h1>
-        <p className="text-gray-500 text-sm mt-1">{t.schedule.subtitle}</p>
+      <div className="mb-5">
+        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{t.schedule.title}</h1>
+        <p className="text-gray-400 text-sm mt-1 font-medium">{t.schedule.subtitle}</p>
       </div>
 
       <DayTimeline
@@ -123,8 +123,10 @@ export default function SchedulePage() {
                 key={day.day}
                 ref={setCardRef(day.day)}
                 className={clsx(
-                  'bg-white rounded-xl shadow-sm border overflow-hidden transition-colors',
-                  lastOpenedDay === day.day ? 'border-blue-300' : 'border-gray-200'
+                  'bg-white rounded-2xl shadow-sm border overflow-hidden transition-all duration-200',
+                  lastOpenedDay === day.day
+                    ? 'border-blue-200 shadow-blue-50 shadow-md'
+                    : 'border-gray-100 hover:border-gray-200 hover:shadow'
                 )}
               >
                 <button
@@ -169,7 +171,7 @@ export default function SchedulePage() {
                 </button>
 
                 {isOpen && (
-                  <div className="pb-5 border-t border-gray-100">
+                  <div className="pb-5 border-t border-gray-100 day-card-content">
                     {DAY_IMAGES[day.day] && (
                       <div className="relative h-32 w-full">
                         <Image
@@ -263,16 +265,16 @@ export default function SchedulePage() {
         </div>
 
         {/* Right: Map + route info (sticky on desktop) */}
-        <div className="lg:w-[400px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3 order-1 lg:order-2">
+        <div className="lg:w-[420px] shrink-0 lg:sticky lg:top-16 lg:self-start space-y-3 order-1 lg:order-2">
           {/* Map */}
           <div
-            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden h-64 lg:h-[360px]"
+            className="rounded-2xl shadow-md border border-gray-100 overflow-hidden h-64 lg:h-[380px]"
           >
             <TripMap language={language} activeDay={lastOpenedDay} />
           </div>
 
           {/* Route info panel */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
             {activeSegment ? (
               <div>
                 <div className="flex items-center gap-2 mb-2">
