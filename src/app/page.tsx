@@ -31,12 +31,12 @@ export default function HomePage() {
 
   const highlights = [
     { emoji: '🎣', en: 'Kaikoura Fishing Charter', zh: '凯库拉钓鱼之旅（第2天）', img: IMAGES.activities.fishing },
-    { emoji: '🌲', en: 'EcoZip Ziplines – Kaikoura', zh: 'EcoZip滑索 – 凯库拉', img: IMAGES.activities.ecozip },
     { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉', img: IMAGES.activities['seal-kayak'] },
     { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山', img: IMAGES.activities['hooker-valley'] },
     { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇', img: IMAGES.activities['skyline-gondola'] },
     { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）', img: IMAGES.destinations.glenorchy },
-    { emoji: '🛁', en: "Omarama Hot Tubs – Rose's family", zh: '奥马拉马温泉浴缸 – Rose一家（第8天）', img: IMAGES.activities['omarama-hot-tubs'] },
+    { emoji: '🍂', en: 'Arrowtown Autumn Festival', zh: '箭镇秋季节', img: IMAGES.destinations.queenstown },
+    { emoji: '🛁', en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶（第8天）', img: IMAGES.activities['omarama-hot-tubs'] },
     { emoji: '🍄', en: "Bottle Lake Mushroom Picking – Chris's family", zh: '瓶湖采蘑菇 – Chris一家（第10天）', img: IMAGES.activities['bottle-lake'] },
   ];
 
@@ -127,25 +127,45 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Campervan Booking Status */}
+      {/* Booking Status */}
       <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
         <h2 className="font-bold text-gray-700 mb-4">{t.home.booking_status}</h2>
         <div className="space-y-2">
           {[
-            { label: language === 'en' ? 'Flights (EK412 / EK413)' : '航班（EK412/EK413）', status: '✅', detail: language === 'en' ? 'Confirmed – Booking #750492842' : '已确认 – 预订号#750492842' },
-            { label: language === 'en' ? 'JUCY Big Kahuna Campervan' : 'JUCY Big Kahuna房车', status: '✅', detail: language === 'en' ? `Confirmed – ${CAMPERVAN.bookingRef}` : `已确认 – ${CAMPERVAN.bookingRef}` },
-            { label: language === 'en' ? 'Accommodation (5 bases)' : '住宿（5个基地）', status: '⏳', detail: language === 'en' ? 'Not yet booked – book soon!' : '尚未预订 – 尽快预订！' },
-            { label: language === 'en' ? 'EcoZip Adventures' : 'EcoZip探险', status: '⏳', detail: language === 'en' ? 'Not yet booked – HIGH PRIORITY' : '尚未预订 – 高优先级' },
-            { label: language === 'en' ? 'Skyline Gondola + Luge' : '天际缆车 + 滑道', status: '⏳', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
-          ].map(({ label, status, detail }) => (
+            { label: language === 'en' ? 'Flights (EK412 / EK413)' : '航班（EK412/EK413）', status: '✅', statusColor: 'text-green-600', detail: language === 'en' ? 'Confirmed – Booking #750492842' : '已确认 – 预订号#750492842' },
+            { label: language === 'en' ? 'JUCY Big Kahuna Campervan' : 'JUCY Big Kahuna房车', status: '✅', statusColor: 'text-green-600', detail: language === 'en' ? `Confirmed – #${CAMPERVAN.bookingRef} ($1,836.79)` : `已确认 – #${CAMPERVAN.bookingRef}（$1,836.79）` },
+            { label: language === 'en' ? 'Accommodation (7 of 9 nights)' : '住宿（9晚中7晚）', status: '✅', statusColor: 'text-green-600', detail: language === 'en' ? 'Booked: $629.13 | Pending: Omarama + CHC final' : '已预订：$629.13 | 待订：奥马拉马 + 基督城最后一晚' },
+            { label: language === 'en' ? 'Seal Kayak Kaikoura' : '凯库拉海豹皮划艇', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
+            { label: language === 'en' ? 'Skyline Gondola + Luge' : '天际缆车 + 滑道', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
+            { label: language === 'en' ? 'Omarama Hot Tubs' : '奥马拉马温泉浴桶', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
+          ].map(({ label, status, statusColor, detail }) => (
             <div key={label} className="flex items-center gap-3 py-2 border-b border-gray-50 last:border-0">
-              <span className="text-lg">{status}</span>
+              <span className={`text-lg ${statusColor}`}>{status}</span>
               <div>
                 <p className="text-sm font-medium text-gray-700">{label}</p>
                 <p className="text-xs text-gray-400">{detail}</p>
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Cost Summary */}
+        <div className="mt-4 pt-4 border-t border-gray-100">
+          <h3 className="text-sm font-semibold text-gray-600 mb-2">{language === 'en' ? '💰 Confirmed Costs' : '💰 已确认费用'}</h3>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="flex justify-between">
+              <span className="text-gray-500">{language === 'en' ? 'Accommodation' : '住宿'}</span>
+              <span className="font-medium text-green-700">$629.13</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-gray-500">{language === 'en' ? 'Campervan' : '房车'}</span>
+              <span className="font-medium text-green-700">$1,836.79</span>
+            </div>
+          </div>
+          <div className="mt-2 pt-2 border-t border-gray-50 flex justify-between text-sm font-semibold">
+            <span className="text-gray-700">{language === 'en' ? 'Total Booked' : '已预订总计'}</span>
+            <span className="text-emerald-700">$2,465.92 NZD</span>
+          </div>
         </div>
       </div>
 

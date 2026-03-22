@@ -103,12 +103,17 @@ export const EMERGENCY_CONTACTS = {
 };
 
 export const BUDGET_SUMMARY = {
-  roseFamilyNZD: 5860,
-  chrisFamilyNZD: 6480,
-  roseFamilyAUD: 5270,
-  chrisFamilyAUD: 5832,
+  roseFamilyNZD: 5626,
+  chrisFamilyNZD: 5379,
+  roseFamilyAUD: 5063,
+  chrisFamilyAUD: 4841,
   note: {
     en: 'Excluding flights',
     zh: '不含机票',
   },
+  // Actual booked costs
+  accommodationBooked: 629.13,
+  campervanTotal: 1836.79,
+  campervanPaid: 374.37,
+  campervanBalanceDue: 1462.42,
 };

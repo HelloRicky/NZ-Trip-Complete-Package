@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { BUDGET_ITEMS, TOTAL_BUDGET, ACTIVITY_COSTS, FOOD_BUDGET } from '@/data/budget';
+import { BUDGET_ITEMS, TOTAL_BUDGET, ACTIVITY_COSTS, FOOD_BUDGET, BOOKING_STATUS, ACCOMMODATION_TOTAL_BOOKED, CAMPERVAN_COSTS } from '@/data/budget';
 import { IMAGES } from '@/data/images';
 import PriorityBadge from '@/components/shared/PriorityBadge';
 
@@ -11,6 +11,7 @@ export default function BudgetPage() {
 
   const totalRose = BUDGET_ITEMS.reduce((s, i) => s + i.roseFamilyNZD, 0);
   const totalChris = BUDGET_ITEMS.reduce((s, i) => s + i.chrisFamilyNZD, 0);
+  const totalBooked = ACCOMMODATION_TOTAL_BOOKED + CAMPERVAN_COSTS.total;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -25,6 +26,40 @@ export default function BudgetPage() {
         <div className="absolute inset-0 flex flex-col justify-center px-6">
           <h1 className="text-2xl font-bold text-white">{t.budget.title}</h1>
           <p className="text-gray-200 text-sm mt-1">{t.budget.subtitle}</p>
+        </div>
+      </div>
+
+      {/* Confirmed Costs Banner */}
+      <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-5 text-white shadow-md mb-6">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-xl">✅</span>
+          <h3 className="font-semibold">{language === 'en' ? 'Confirmed Bookings' : '已确认预订'}</h3>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div>
+            <div className="opacity-75">{language === 'en' ? 'Accommodation' : '住宿'}</div>
+            <div className="text-xl font-bold">${ACCOMMODATION_TOTAL_BOOKED.toFixed(2)}</div>
+            <div className="text-xs opacity-60">{language === 'en' ? '7 nights booked' : '已预订7晚'}</div>
+          </div>
+          <div>
+            <div className="opacity-75">{language === 'en' ? 'Campervan' : '房车'}</div>
+            <div className="text-xl font-bold">${CAMPERVAN_COSTS.total.toFixed(2)}</div>
+            <div className="text-xs opacity-60">{language === 'en' ? '9 days' : '9天'}</div>
+          </div>
+          <div>
+            <div className="opacity-75">{language === 'en' ? 'Already Paid' : '已付款'}</div>
+            <div className="text-xl font-bold">${(ACCOMMODATION_TOTAL_BOOKED + CAMPERVAN_COSTS.paid).toFixed(2)}</div>
+            <div className="text-xs opacity-60">{language === 'en' ? 'Accom + deposit' : '住宿 + 押金'}</div>
+          </div>
+          <div>
+            <div className="opacity-75">{language === 'en' ? 'Balance Due' : '待付余额'}</div>
+            <div className="text-xl font-bold">${CAMPERVAN_COSTS.balanceDue.toFixed(2)}</div>
+            <div className="text-xs opacity-60">{language === 'en' ? 'At pickup' : '取车时付'}</div>
+          </div>
+        </div>
+        <div className="mt-4 pt-3 border-t border-white/20 flex justify-between items-center">
+          <span className="font-semibold">{language === 'en' ? 'Total Booked' : '预订总计'}</span>
+          <span className="text-2xl font-bold">${totalBooked.toFixed(2)} NZD</span>
         </div>
       </div>
 
