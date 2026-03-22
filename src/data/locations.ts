@@ -296,7 +296,21 @@ export const LOCATIONS: Location[] = [
     days: [],
   },
 
-  // === DAY 8 (ROSE): OMARAMA & LAKE OHAU ===
+  // === DAY 8: ARROWTOWN AUTUMN FESTIVAL ===
+  {
+    id: 'arrowtown',
+    name: { en: 'Arrowtown', zh: '箭镇' },
+    coords: [-44.9369, 168.8256],
+    type: 'activity',
+    icon: '🍂',
+    description: {
+      en: 'Day 8: Arrowtown Autumn Festival\n⭐ Historic gold mining town\nStunning autumn colours!\nMarket stalls, food & wine\n~20 min from Queenstown',
+      zh: '第8天：箭镇秋季节\n⭐ 历史淘金小镇\n绝美秋色！\n集市摊位、美食美酒\n距皇后镇约20分钟',
+    },
+    days: [8],
+  },
+
+  // === DAY 8: OMARAMA & LAKE OHAU ===
   {
     id: 'omarama-hot-tubs',
     name: { en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶' },
@@ -401,14 +415,14 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '95 km',
     driveTime: '1.5 hrs',
   },
-  // Day 8 (Both Families): Queenstown → Omarama via Cromwell, Lindis Pass
+  // Day 8 (Both Families): Arrowtown Festival → Omarama via Cromwell, Lindis Pass
   {
     coords: ROAD_DAY8_ROSE,
     color: '#e74c3c',
-    day: { en: 'Day 8 – Both Families: QT → Omarama (via Cromwell, Lindis Pass)', zh: '第8天 – 两家人：皇后镇 → 奥马拉马（经克伦威尔、Lindis Pass）' },
+    day: { en: 'Day 8 – Arrowtown Festival → Omarama', zh: '第8天 – 箭镇秋季节 → 奥马拉马' },
     dayNum: 8,
-    distance: '230 km',
-    driveTime: '3 hrs',
+    distance: '210 km',
+    driveTime: '2.5 hrs',
   },
   // Day 9 (Both Families): Omarama → Christchurch via Burke Pass
   {
@@ -439,7 +453,7 @@ export const DAY_ORDER: Record<number, string[]> = {
   5: ['tekapo', 'lake-pukaki', 'mtcook-village', 'hooker-valley', 'twizel'],
   6: ['twizel', 'lindis-pass', 'cromwell', 'queenstown-gardens', 'queenstown'],
   7: ['queenstown', 'skyline-gondola', 'bennetts-bluff', 'glenorchy', 'queenstown'],
-  8: ['queenstown', 'cromwell', 'lindis-pass', 'lake-ohau', 'omarama-hot-tubs'],
+  8: ['queenstown', 'arrowtown', 'cromwell', 'lindis-pass', 'omarama-hot-tubs'],
   9: ['omarama-hot-tubs', 'christchurch-airport'],
   10: ['christchurch-airport', 'bottle-lake-forest', 'christchurch-airport'],
 };
