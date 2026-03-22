@@ -27,7 +27,7 @@ export const LOCATIONS: Location[] = [
     days: [1, 9, 10],
   },
 
-  // === BASE 1: KAIKOURA (3 nights) ===
+  // === BASE 1: KAIKOURA (2 nights) ===
   {
     id: 'kaikoura',
     name: { en: 'Kaikoura', zh: '凯库拉' },
@@ -35,10 +35,10 @@ export const LOCATIONS: Location[] = [
     type: 'base',
     icon: '🏕️',
     description: {
-      en: 'Base 1: Kaikoura\n3 nights (Apr 11-13)\nEcoZip, Seal Kayaking, whale watching\nRecommended: Kaikoura TOP 10',
-      zh: '基地1：凯库拉\n3晚（4月11-13日）\nEcoZip滑索、海豹皮划艇、观鲸\n推荐：Kaikoura TOP 10',
+      en: 'Base 1: Kaikoura\n2 nights (Apr 11-12)\nSeal Kayaking, fishing, seal colony\nRecommended: Kaikoura TOP 10',
+      zh: '基地1：凯库拉\n2晚（4月11-12日）\n海豹皮划艇、钓鱼、海豹群落\n推荐：Kaikoura TOP 10',
     },
-    days: [1, 2, 3],
+    days: [1, 2],
   },
   {
     id: 'goose-bay',
@@ -64,18 +64,7 @@ export const LOCATIONS: Location[] = [
     },
     days: [2],
   },
-  {
-    id: 'ecozip-kaikoura',
-    name: { en: 'EcoZip Adventures', zh: 'EcoZip探险' },
-    coords: [-42.4167, 173.6500],
-    type: 'activity',
-    icon: '🌲',
-    description: {
-      en: 'Day 3: EcoZip Adventures\n8 ziplines through native forest\n~3 hours, min age 7\n~$1,100 for 7 people',
-      zh: '第3天：EcoZip探险\n8条滑索穿越原生森林\n约3小时，最低年龄7岁\n7人约$1,100',
-    },
-    days: [3],
-  },
+
   {
     id: 'seal-kayak',
     name: { en: 'Seal Kayak Kaikoura', zh: '凯库拉海豹皮划艇' },
@@ -83,8 +72,8 @@ export const LOCATIONS: Location[] = [
     type: 'activity',
     icon: '🛶',
     description: {
-      en: 'Day 3: Seal Kayaking\nPaddle with wild seals!\n2-2.5 hours, will get wet\n~$670 for group',
-      zh: '第3天：海豹皮划艇\n与野生海豹同游！\n2-2.5小时，会弄湿\n团体约$670',
+      en: 'Day 3: Seal Kayaking (morning)\n⭐ Main Kaikoura activity!\nPaddle with wild seals!\n2-2.5 hours, will get wet\nThen drive to Christchurch',
+      zh: '第3天：海豹皮划艇（上午）\n⭐ 凯库拉主要活动！\n与野生海豹同游！\n2-2.5小时，会弄湿\n然后驾车前往基督城',
     },
     days: [3],
   },
@@ -101,7 +90,21 @@ export const LOCATIONS: Location[] = [
     days: [2, 3],
   },
 
-  // === BASE 2: LAKE TEKAPO (2 nights) ===
+  // === BASE 1b: CHRISTCHURCH TRANSIT (1 night) ===
+  {
+    id: 'christchurch-transit',
+    name: { en: 'Christchurch (Transit)', zh: '基督城（中转）' },
+    coords: [-43.5321, 172.6362],
+    type: 'base',
+    icon: '🏕️',
+    description: {
+      en: 'Base 1b: Christchurch Transit\n1 night (Apr 13)\nRelax after Kaikoura\nRecommended: Christchurch TOP 10',
+      zh: '基地1b：基督城中转\n1晚（4月13日）\n凯库拉后休息\n推荐：Christchurch TOP 10',
+    },
+    days: [3],
+  },
+
+  // === BASE 2: LAKE TEKAPO (1 night) ===
   {
     id: 'tekapo',
     name: { en: 'Lake Tekapo', zh: '蒂卡波湖' },
@@ -109,10 +112,24 @@ export const LOCATIONS: Location[] = [
     type: 'base',
     icon: '🏕️',
     description: {
-      en: 'Base 2: Lake Tekapo\n2 nights (Apr 14-15)\nStunning turquoise lake\nDark Sky Reserve – incredible stargazing!\nDay trip to Mt Cook on Day 5',
-      zh: '基地2：蒂卡波湖\n2晚（4月14-15日）\n令人叹为观止的碧蓝湖\n暗夜保护区 – 绝佳观星！\n第5天一日游去库克山',
+      en: 'Base 2: Lake Tekapo\n1 night (Apr 14)\nStunning turquoise lake\nDark Sky Reserve – incredible stargazing!\nMt Cook day trip next day',
+      zh: '基地2：蒂卡波湖\n1晚（4月14日）\n令人叹为观止的碧蓝湖\n暗夜保护区 – 绝佳观星！\n第二天库克山一日游',
     },
-    days: [4, 5],
+    days: [4],
+  },
+
+  // === BASE 2b: TWIZEL (1 night) ===
+  {
+    id: 'twizel',
+    name: { en: 'Twizel', zh: '特威泽尔' },
+    coords: [-44.2573, 170.0981],
+    type: 'base',
+    icon: '🏕️',
+    description: {
+      en: 'Base 2b: Twizel\n1 night (Apr 15)\nSaves driving time to Queenstown!\n45 min from Mt Cook\nRecommended: Twizel Holiday Park',
+      zh: '基地2b：特威泽尔\n1晚（4月15日）\n节省去皇后镇的驾驶时间！\n距库克山45分钟\n推荐：Twizel Holiday Park',
+    },
+    days: [5],
   },
   {
     id: 'church-good-shepherd',
@@ -339,41 +356,41 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
     distance: '12 km',
     driveTime: '20 min',
   },
-  // Day 3: Kaikoura local loop – EcoZip & Seal Kayaking
+  // Day 3: Kaikoura → Christchurch (Seal Kayaking morning, then drive to CHC)
   {
     coords: ROAD_DAY3,
     color: '#27ae60',
-    day: { en: 'Day 3 – Kaikoura: EcoZip & Kayaking', zh: '第3天 – 凯库拉：EcoZip & 皮划艇' },
+    day: { en: 'Day 3 – Seal Kayaking → Christchurch', zh: '第3天 – 海豹皮划艇 → 基督城' },
     dayNum: 3,
-    distance: '20 km',
-    driveTime: '30 min',
+    distance: '180 km',
+    driveTime: '2.5 hrs',
   },
-  // Day 4: Kaikoura → Lake Tekapo (SH1 → inland MacKenzie Country)
+  // Day 4: Christchurch → Lake Tekapo (inland through MacKenzie Country)
   {
     coords: ROAD_DAY4,
     color: '#9b59b6',
-    day: { en: 'Day 4 – Kaikoura → Lake Tekapo', zh: '第4天 – 凯库拉 → 蒂卡波湖' },
+    day: { en: 'Day 4 – Christchurch → Lake Tekapo', zh: '第4天 – 基督城 → 蒂卡波湖' },
     dayNum: 4,
-    distance: '320 km',
-    driveTime: '4.5 hrs',
+    distance: '225 km',
+    driveTime: '3 hrs',
   },
-  // Day 5: Lake Tekapo → Mt Cook → Lake Tekapo (day trip loop)
+  // Day 5: Lake Tekapo → Mt Cook → Twizel (Mt Cook day trip, then overnight Twizel)
   {
     coords: ROAD_DAY5,
     color: '#1abc9c',
-    day: { en: 'Day 5 – Mt Cook Day Trip (from Lake Tekapo)', zh: '第5天 – 库克山一日游（从蒂卡波湖出发）' },
+    day: { en: 'Day 5 – Mt Cook Day Trip → Twizel', zh: '第5天 – 库克山一日游 → 特威泽尔' },
     dayNum: 5,
-    distance: '190 km',
-    driveTime: '3 hrs return',
+    distance: '150 km',
+    driveTime: '2.5 hrs',
   },
-  // Day 6: Lake Tekapo → Queenstown (via Lindis Pass & Cromwell)
+  // Day 6: Twizel → Queenstown (via Lindis Pass & Cromwell)
   {
     coords: ROAD_DAY6,
     color: '#e67e22',
-    day: { en: 'Day 6 – Lake Tekapo → Queenstown', zh: '第6天 – 蒂卡波湖 → 皇后镇' },
+    day: { en: 'Day 6 – Twizel → Queenstown', zh: '第6天 – 特威泽尔 → 皇后镇' },
     dayNum: 6,
-    distance: '260 km',
-    driveTime: '3.5 hrs',
+    distance: '210 km',
+    driveTime: '2.5 hrs',
   },
   // Day 7: Queenstown → Skyline Gondola → Bennett's Bluff → Glenorchy → Queenstown
   {
@@ -417,10 +434,10 @@ export const ROUTE_SEGMENTS: RouteSegment[] = [
 export const DAY_ORDER: Record<number, string[]> = {
   1: ['christchurch-airport', 'goose-bay', 'kaikoura'],
   2: ['kaikoura', 'fishing-charter', 'point-kean', 'kaikoura'],
-  3: ['kaikoura', 'ecozip-kaikoura', 'seal-kayak', 'point-kean', 'kaikoura'],
-  4: ['kaikoura', 'church-good-shepherd', 'tekapo'],
-  5: ['tekapo', 'lake-pukaki', 'mtcook-village', 'hooker-valley', 'tekapo'],
-  6: ['tekapo', 'lindis-pass', 'cromwell', 'queenstown-gardens', 'queenstown'],
+  3: ['kaikoura', 'seal-kayak', 'christchurch-transit'],
+  4: ['christchurch-transit', 'church-good-shepherd', 'tekapo'],
+  5: ['tekapo', 'lake-pukaki', 'mtcook-village', 'hooker-valley', 'twizel'],
+  6: ['twizel', 'lindis-pass', 'cromwell', 'queenstown-gardens', 'queenstown'],
   7: ['queenstown', 'skyline-gondola', 'bennetts-bluff', 'glenorchy', 'queenstown'],
   8: ['queenstown', 'cromwell', 'lindis-pass', 'lake-ohau', 'omarama-hot-tubs'],
   9: ['omarama-hot-tubs', 'christchurch-airport'],
