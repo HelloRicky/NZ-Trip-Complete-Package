@@ -18,6 +18,29 @@ function PoweredBadge({ powered }: { powered: boolean }) {
   return <span className="text-xs font-medium bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">Unpowered</span>;
 }
 
+function BookingStatusBadge({ status, bookingRef, totalCost, currency }: { status?: 'booked' | 'pending'; bookingRef?: string; totalCost?: number; currency?: string }) {
+  if (status === 'booked') {
+    return (
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded-full flex items-center gap-1">
+          <span>✅</span> BOOKED
+        </span>
+        {bookingRef && (
+          <span className="text-xs text-gray-500">Ref: {bookingRef}</span>
+        )}
+        {totalCost && currency && (
+          <span className="text-xs font-medium text-green-700">${totalCost.toFixed(2)} {currency}</span>
+        )}
+      </div>
+    );
+  }
+  return (
+    <span className="text-xs font-medium bg-red-100 text-red-700 px-2 py-1 rounded-full flex items-center gap-1">
+      <span>🔴</span> NOT BOOKED
+    </span>
+  );
+}
+
 export default function AccommodationPage() {
   const { t, language } = useLanguage();
 
@@ -31,10 +54,13 @@ export default function AccommodationPage() {
       {/* Strategy overview */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         {ACCOMMODATION_BASES.map((base) => (
-          <div key={base.id} className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center">
-            <div className="font-bold text-emerald-700 text-sm">{language === 'en' ? base.name.en : base.name.zh}</div>
-            <div className="text-xs text-emerald-600 mt-1">{language === 'en' ? base.dates.en : base.dates.zh}</div>
-            <div className="text-lg font-bold text-emerald-800 mt-2">{base.nights} {language === 'en' ? 'nights' : '晚'}</div>
+          <div key={base.id} className={`${base.status === 'booked' ? 'bg-emerald-50 border-emerald-200' : 'bg-red-50 border-red-200'} border rounded-xl p-4 text-center`}>
+            <div className={`font-bold text-sm ${base.status === 'booked' ? 'text-emerald-700' : 'text-red-700'}`}>{language === 'en' ? base.name.en : base.name.zh}</div>
+            <div className={`text-xs mt-1 ${base.status === 'booked' ? 'text-emerald-600' : 'text-red-600'}`}>{language === 'en' ? base.dates.en : base.dates.zh}</div>
+            <div className={`text-lg font-bold mt-2 ${base.status === 'booked' ? 'text-emerald-800' : 'text-red-800'}`}>{base.nights} {language === 'en' ? 'nights' : '晚'}</div>
+            <div className={`text-xs mt-1 ${base.status === 'booked' ? 'text-green-600' : 'text-red-600'}`}>
+              {base.status === 'booked' ? '✅ Booked' : '🔴 Not booked'}
+            </div>
           </div>
         ))}
       </div>
@@ -57,7 +83,9 @@ export default function AccommodationPage() {
                 </div>
               )}
               <div className={`${BASE_IMAGES[base.id] ? 'absolute inset-0' : 'bg-emerald-600'} px-6 py-4 text-white flex flex-col justify-end`}>
-                <h2 className="text-lg font-bold">{language === 'en' ? base.name.en : base.name.zh}</h2>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h2 className="text-lg font-bold">{language === 'en' ? base.name.en : base.name.zh}</h2>
+                </div>
                 <div className="text-emerald-100 text-sm mt-1">
                   {language === 'en' ? base.dates.en : base.dates.zh} · {base.nights} {language === 'en' ? 'nights' : '晚'}
                 </div>
@@ -66,6 +94,11 @@ export default function AccommodationPage() {
             </div>
 
             <div className="p-6 space-y-5">
+              {/* Booking Status */}
+              <div className="pb-3 border-b border-gray-100">
+                <BookingStatusBadge status={base.status} bookingRef={base.bookingRef} totalCost={base.totalCost} currency={base.currency} />
+              </div>
+
               {/* Check-in/out */}
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>

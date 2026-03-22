@@ -74,6 +74,8 @@ export interface AccommodationOption {
   name: string;
   powered: boolean;
   address: BilingualText;
+  phone?: string;
+  email?: string;
   whyChoose: BilingualText;
   siteType: BilingualText;
   amenities: BilingualText[];
@@ -88,6 +90,10 @@ export interface AccommodationBase {
   dates: BilingualText;
   checkIn: string;
   checkOut: string;
+  status?: 'booked' | 'pending';
+  bookingRef?: string;
+  totalCost?: number;
+  currency?: string;
   purpose: BilingualText;
   options: AccommodationOption[];
   notes: BilingualText[];
