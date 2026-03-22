@@ -33,8 +33,8 @@ export default function HomePage() {
     { emoji: '🎣', en: 'Kaikoura Fishing Charter', zh: '凯库拉钓鱼之旅（第2天）', img: IMAGES.activities.fishing },
     { emoji: '🛶', en: 'Seal Kayaking – Kaikoura', zh: '海豹皮划艇 – 凯库拉', img: IMAGES.activities['seal-kayak'] },
     { emoji: '🏔️', en: 'Hooker Valley Track – Mt Cook', zh: 'Hooker Valley步道 – 库克山', img: IMAGES.activities['hooker-valley'] },
+    { emoji: '🪂', en: 'SKYDIVE Mt Cook – Rose & Chris!', zh: '库克山跳伞 – Rose & Chris！', img: IMAGES.activities['hooker-valley'] },
     { emoji: '🚡', en: 'Skyline Gondola + Luge – Queenstown', zh: '天际缆车 + 滑道 – 皇后镇', img: IMAGES.activities['skyline-gondola'] },
-    { emoji: '🌲', en: 'Glenorchy & Paradise (LOTR)', zh: '格林诺奇 & 天堂谷（指环王）', img: IMAGES.destinations.glenorchy },
     { emoji: '🍂', en: 'Arrowtown Autumn Festival', zh: '箭镇秋季节', img: IMAGES.destinations.queenstown },
     { emoji: '🛁', en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶（第8天）', img: IMAGES.activities['omarama-hot-tubs'] },
     { emoji: '🍄', en: "Bottle Lake Mushroom Picking – Chris's family", zh: '瓶湖采蘑菇 – Chris一家（第10天）', img: IMAGES.activities['bottle-lake'] },
@@ -136,6 +136,7 @@ export default function HomePage() {
             { label: language === 'en' ? 'JUCY Big Kahuna Campervan' : 'JUCY Big Kahuna房车', status: '✅', statusColor: 'text-green-600', detail: language === 'en' ? `Confirmed – #${CAMPERVAN.bookingRef} ($1,836.79)` : `已确认 – #${CAMPERVAN.bookingRef}（$1,836.79）` },
             { label: language === 'en' ? 'Accommodation (7 of 9 nights)' : '住宿（9晚中7晚）', status: '✅', statusColor: 'text-green-600', detail: language === 'en' ? 'Booked: $629.13 | Pending: Omarama + CHC final' : '已预订：$629.13 | 待订：奥马拉马 + 基督城最后一晚' },
             { label: language === 'en' ? 'Seal Kayak Kaikoura' : '凯库拉海豹皮划艇', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
+            { label: language === 'en' ? 'Skydive Mt Cook (Rose & Chris)' : '库克山跳伞（Rose & Chris）', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? '~$598 (2 × $299)' : '约$598（2 × $299）' },
             { label: language === 'en' ? 'Skyline Gondola + Luge' : '天际缆车 + 滑道', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
             { label: language === 'en' ? 'Omarama Hot Tubs' : '奥马拉马温泉浴桶', status: '⏳', statusColor: 'text-amber-600', detail: language === 'en' ? 'Not yet booked' : '尚未预订' },
           ].map(({ label, status, statusColor, detail }) => (

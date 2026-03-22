@@ -48,9 +48,9 @@ export const BUDGET_ITEMS: BudgetItem[] = [
   },
   {
     category: { en: '🎢 Activities', zh: '🎢 活动' },
-    roseFamilyNZD: 600,
-    chrisFamilyNZD: 700,
-    notes: { en: 'Seal Kayak (~$300), Skyline Gondola+Luge (~$200), Hot Tubs (~$100)', zh: '海豹皮划艇（约$300）、天际缆车+滑道（约$200）、温泉浴桶（约$100）' },
+    roseFamilyNZD: 900,
+    chrisFamilyNZD: 1000,
+    notes: { en: 'Skydive Mt Cook (~$300/person), Seal Kayak (~$300), Skyline Luge (~$200), Hot Tubs (~$100)', zh: '库克山跳伞（约$300/人）、海豹皮划艇（约$300）、天际滑道（约$200）、温泉浴桶（约$100）' },
   },
   {
     category: { en: '🍽️ Food & Dining', zh: '🍽️ 餐饮' },
@@ -86,17 +86,25 @@ export const ACTIVITY_COSTS = [
     status: 'pending' as const,
   },
   {
+    name: { en: 'Hooker Valley Track', zh: 'Hooker Valley步道' },
+    costNZD: 0,
+    priority: 'high' as const,
+    day: 5,
+    status: 'free' as const,
+  },
+  {
+    name: { en: 'Skydive Mt Cook (Rose & Chris)', zh: '库克山跳伞（Rose & Chris）' },
+    costNZD: 598,
+    priority: 'high' as const,
+    day: 5,
+    status: 'pending' as const,
+    notes: { en: '$299 × 2 people (10,000ft)', zh: '$299 × 2人（10,000英尺）' },
+  },
+  {
     name: { en: 'Skyline Gondola + Luge', zh: '天际缆车 + 滑道' },
     costNZD: 200,
     priority: 'high' as const,
     day: 7,
-    status: 'pending' as const,
-  },
-  {
-    name: { en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶' },
-    costNZD: 100,
-    priority: 'high' as const,
-    day: 8,
     status: 'pending' as const,
   },
   {
@@ -105,6 +113,13 @@ export const ACTIVITY_COSTS = [
     priority: 'medium' as const,
     day: 8,
     status: 'free' as const,
+  },
+  {
+    name: { en: 'Omarama Hot Tubs', zh: '奥马拉马温泉浴桶' },
+    costNZD: 350,
+    priority: 'high' as const,
+    day: 8,
+    status: 'pending' as const,
   },
 ];
 
