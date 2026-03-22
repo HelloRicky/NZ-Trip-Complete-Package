@@ -3,6 +3,7 @@ export const zh = {
     home: '首页',
     schedule: '日程',
     accommodation: '住宿',
+    campervan: '房车',
     activities: '活动',
     budget: '预算',
     packing: '打包',

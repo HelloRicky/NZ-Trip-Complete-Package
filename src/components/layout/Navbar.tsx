@@ -15,6 +15,7 @@ export default function Navbar() {
     { href: '/', label: t.nav.home },
     { href: '/schedule', label: t.nav.schedule },
     { href: '/accommodation', label: t.nav.accommodation },
+    { href: '/campervan', label: t.nav.campervan },
     { href: '/activities', label: t.nav.activities },
     { href: '/budget', label: t.nav.budget },
     { href: '/packing', label: t.nav.packing },

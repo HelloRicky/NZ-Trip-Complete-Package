@@ -4,6 +4,7 @@ export const en = {
     home: 'Home',
     schedule: 'Schedule',
     accommodation: 'Accommodation',
+    campervan: 'Campervan',
     activities: 'Activities',
     budget: 'Budget',
     packing: 'Packing',
