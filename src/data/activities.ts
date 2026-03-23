@@ -124,12 +124,12 @@ export const ACTIVITIES: Activity[] = [
     id: 'skydive-mtcook',
     name: { en: 'Skydive Mount Cook – Rose & Chris', zh: '库克山跳伞 – Rose & Chris' },
     day: 5,
-    time: '2:00 PM',
+    time: '11:00 AM',
     duration: { en: '~30 min experience', zh: '约30分钟体验' },
     priority: 'high',
-    status: 'pending',
-    costAdult: 299,
-    costTotal: 598,
+    status: 'booked',
+    costAdult: 199,
+    costTotal: 398,
     currency: 'NZD',
     participants: { en: 'Rose & Chris only (others watch)', zh: '仅Rose和Chris（其他人观看）' },
     description: {
@@ -137,8 +137,8 @@ export const ACTIVITIES: Activity[] = [
       zh: '在库克山和普卡基湖上空10,000英尺双人跳伞！壮观的高山风景。快速约30分钟体验。Ricky、Yuyu和孩子们在Glentanner的绝佳观景区观看。',
     },
     notes: { 
-      en: '⚠️ BOOK IN ADVANCE! Weather dependent. Photo/video packages available extra. Min weight 45kg, max 100kg.', 
-      zh: '⚠️ 提前预订！依天气而定。照片/视频套餐额外收费。最低体重45公斤，最高100公斤。' 
+      en: '✅ BOOKED! 11am session. Weather dependent. Photo/video packages available extra. Min weight 45kg, max 100kg.', 
+      zh: '✅ 已预订！上午11点场次。依天气而定。照片/视频套餐额外收费。最低体重45公斤，最高100公斤。' 
     },
     website: 'https://www.skydivenz.com/mt-cook',
     phone: '+64 3 680 6880',

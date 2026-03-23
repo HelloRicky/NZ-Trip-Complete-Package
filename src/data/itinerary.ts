@@ -156,25 +156,26 @@ export const ITINERARY: ItineraryDay[] = [
         ],
       },
       {
-        title: { en: 'Morning/Early Afternoon – Hooker Valley Track', zh: '上午/下午早间 – Hooker Valley步道' },
+        title: { en: 'Late Morning – SKYDIVE MOUNT COOK! 🪂', zh: '上午 – 库克山跳伞！ 🪂' },
         activities: [
-          { time: '10:30 AM', emoji: '🥾', name: { en: 'HOOKER VALLEY TRACK', zh: 'HOOKER VALLEY步道' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: '⭐⭐⭐ MUST-DO! 10km return, 3-4 hrs. 3 swing bridges!', zh: '⭐⭐⭐ 必做！往返10公里，3-4小时。3座吊桥！' } },
-          { time: '1:00 PM', emoji: '🍽️', name: { en: 'Quick picnic lunch at trailhead', zh: '步道起点快速野餐' }, type: 'normal' },
+          { time: '10:30 AM', emoji: '🚗', name: { en: 'Drive to Skydive Mount Cook (Glentanner)', zh: '驾车前往库克山跳伞（Glentanner）' }, type: 'normal', notes: { en: '~20 min drive from Lake Pukaki viewpoint', zh: '距普卡基湖观景台约20分钟车程' } },
+          { time: '11:00 AM', emoji: '🪂', name: { en: 'SKYDIVE MOUNT COOK – Rose & Chris!', zh: '库克山跳伞 – Rose & Chris！' }, type: 'must-book', cost: { en: '$199 per person (10,000ft) – BOOKED!', zh: '$199/人（10,000英尺）– 已预订！' }, notes: { en: '⭐⭐⭐ ADRENALINE RUSH! 10,000ft tandem jump over Mt Cook! ~30 min experience. Ricky, Yuyu & kids watch from ground – great viewing area!', zh: '⭐⭐⭐ 肾上腺素飙升！在库克山上空10,000英尺双人跳伞！约30分钟体验。Ricky、Yuyu和孩子们在地面观看 – 观景区很棒！' } },
+          { time: '12:00 PM', emoji: '📸', name: { en: 'Post-jump photos & celebration', zh: '跳伞后拍照 & 庆祝' }, type: 'normal', notes: { en: 'Photo/video packages available', zh: '有照片/视频套餐可选' } },
         ],
       },
       {
-        title: { en: 'Afternoon – SKYDIVE MOUNT COOK! 🪂', zh: '下午 – 库克山跳伞！ 🪂' },
+        title: { en: 'Afternoon – Hooker Valley Track', zh: '下午 – Hooker Valley步道' },
         activities: [
-          { time: '1:30 PM', emoji: '🚗', name: { en: 'Drive to Skydive Mount Cook (Glentanner)', zh: '驾车前往库克山跳伞（Glentanner）' }, type: 'normal', notes: { en: '~15 min drive from Hooker Valley', zh: '距Hooker Valley约15分钟车程' } },
-          { time: '2:00 PM', emoji: '🪂', name: { en: 'SKYDIVE MOUNT COOK – Rose & Chris!', zh: '库克山跳伞 – Rose & Chris！' }, type: 'must-book', cost: { en: '~$299 per person (10,000ft)', zh: '约$299/人（10,000英尺）' }, notes: { en: '⭐⭐⭐ ADRENALINE RUSH! 10,000ft tandem jump over Mt Cook! ~30 min experience. Ricky, Yuyu & kids watch from ground – great viewing area!', zh: '⭐⭐⭐ 肾上腺素飙升！在库克山上空10,000英尺双人跳伞！约30分钟体验。Ricky、Yuyu和孩子们在地面观看 – 观景区很棒！' } },
-          { time: '3:00 PM', emoji: '📸', name: { en: 'Post-jump photos & celebration', zh: '跳伞后拍照 & 庆祝' }, type: 'normal', notes: { en: 'Photo/video packages available', zh: '有照片/视频套餐可选' } },
+          { time: '12:30 PM', emoji: '🚗', name: { en: 'Drive to Hooker Valley carpark', zh: '驾车前往Hooker Valley停车场' }, type: 'normal', notes: { en: '~15 min from Glentanner', zh: '距Glentanner约15分钟' } },
+          { time: '12:45 PM', emoji: '🍽️', name: { en: 'Quick picnic lunch at trailhead', zh: '步道起点快速野餐' }, type: 'normal' },
+          { time: '1:15 PM', emoji: '🥾', name: { en: 'HOOKER VALLEY TRACK', zh: 'HOOKER VALLEY步道' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: '⭐⭐⭐ MUST-DO! 10km return, 3-4 hrs. 3 swing bridges!', zh: '⭐⭐⭐ 必做！往返10公里，3-4小时。3座吊桥！' } },
         ],
       },
       {
         title: { en: 'Late Afternoon – Drive to Twizel', zh: '傍晚 – 驱车前往特威泽尔' },
         activities: [
-          { time: '3:30 PM', emoji: '🚗', name: { en: 'Drive to Twizel', zh: '驱车前往特威泽尔' }, type: 'normal', notes: { en: '~45 min drive. Saves driving time for Queenstown tomorrow!', zh: '约45分钟车程。为明天去皇后镇节省时间！' } },
-          { time: '4:15 PM', emoji: '🏕️', name: { en: 'Check into Twizel Holiday Park', zh: '入住特威泽尔假日公园' }, type: 'normal' },
+          { time: '4:30 PM', emoji: '🚗', name: { en: 'Drive to Twizel', zh: '驱车前往特威泽尔' }, type: 'normal', notes: { en: '~45 min drive. Saves driving time for Queenstown tomorrow!', zh: '约45分钟车程。为明天去皇后镇节省时间！' } },
+          { time: '5:15 PM', emoji: '🏕️', name: { en: 'Check into Twizel Holiday Park', zh: '入住特威泽尔假日公园' }, type: 'normal' },
         ],
       },
       {
@@ -185,7 +186,7 @@ export const ITINERARY: ItineraryDay[] = [
         ],
       },
     ],
-    notes: { en: 'Epic day! Hooker Valley hike in the morning, then Rose & Chris SKYDIVE over Mt Cook while others watch. Quick experience (~30 min) then off to Twizel.', zh: '史诗般的一天！上午Hooker Valley徒步，然后Rose和Chris在库克山上空跳伞，其他人在地面观看。快速体验（约30分钟）然后前往特威泽尔。' },
+    notes: { en: 'Epic day! Rose & Chris SKYDIVE at 11am while others watch, then Hooker Valley hike in the afternoon. Great way to burn off the adrenaline!', zh: '史诗般的一天！Rose和Chris上午11点跳伞，其他人观看，然后下午Hooker Valley徒步。燃烧肾上腺素的好方式！' },
   },
   {
     day: 6,

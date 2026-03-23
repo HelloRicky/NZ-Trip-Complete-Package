@@ -94,11 +94,11 @@ export const ACTIVITY_COSTS = [
   },
   {
     name: { en: 'Skydive Mt Cook (Rose & Chris)', zh: '库克山跳伞（Rose & Chris）' },
-    costNZD: 598,
+    costNZD: 398,
     priority: 'high' as const,
     day: 5,
-    status: 'pending' as const,
-    notes: { en: '$299 × 2 people (10,000ft)', zh: '$299 × 2人（10,000英尺）' },
+    status: 'booked' as const,
+    notes: { en: '$199 × 2 people (10,000ft)', zh: '$199 × 2人（10,000英尺）' },
   },
   {
     name: { en: 'Skyline Gondola + Luge', zh: '天际缆车 + 滑道' },
