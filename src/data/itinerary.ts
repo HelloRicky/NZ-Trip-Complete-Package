@@ -48,16 +48,17 @@ export const ITINERARY: ItineraryDay[] = [
         title: { en: 'Morning – Fishing or Seal Colony', zh: '上午 – 钓鱼或海豹群落' },
         activities: [
           { time: '7:00 AM', emoji: '🍳', name: { en: 'Breakfast at camp', zh: '营地早餐' }, type: 'normal' },
-          { time: '8:00 AM', emoji: '🎣', name: { en: 'Fishing Charter (optional)', zh: '钓鱼游船（可选）' }, type: 'optional', cost: { en: '~$700–1,400 for group', zh: '团体约$700-1,400' }, notes: { en: 'Deep sea fishing off Kaikoura coast. ~3-4 hrs. Book in advance!', zh: '凯库拉海岸深海钓鱼。约3-4小时。提前预订！' } },
+          { time: '8:00 AM', emoji: '🦭', name: { en: 'Free morning – seals or sleep in', zh: '自由上午 – 看海豹或睡懒觉' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: 'Fishing charter is at 3pm, so enjoy a relaxed morning!', zh: '钓鱼游船在下午3点，所以上午轻松休息！' } },
           { time: '9:00 AM', emoji: '🦭', name: { en: 'Point Kean Seal Colony', zh: 'Point Kean海豹群落' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: 'Free viewing platform – walk the Kaikoura Peninsula Walkway', zh: '免费观景台 – 步行凯库拉半岛步道' } },
           { time: '12:00 PM', emoji: '🍽️', name: { en: 'Lunch in Kaikoura', zh: '在凯库拉午餐' }, type: 'normal' },
         ],
       },
       {
-        title: { en: 'Afternoon – Beach & Relax', zh: '下午 – 海滩休闲' },
+        title: { en: 'Afternoon – Beach, Relax & Fishing Charter!', zh: '下午 – 海滩休闲 & 钓鱼！' },
         activities: [
           { time: '2:00 PM', emoji: '🏖️', name: { en: 'Beach time & rock pool exploring', zh: '海滩时光 & 潮池探索' }, type: 'free', cost: { en: 'FREE', zh: '免费' }, notes: { en: 'Kids love the rock pools!', zh: '孩子们喜欢潮池！' } },
-          { time: '4:30 PM', emoji: '🏊', name: { en: 'Heated pool session', zh: '加热泳池时间' }, type: 'free', cost: { en: 'Included', zh: '含在营地费用内' } },
+          { time: '3:00 PM', emoji: '🎣', name: { en: 'Seamist Fishing Charter', zh: 'Seamist钓鱼游船' }, type: 'must-book', cost: { en: 'BOOKED', zh: '已预订' }, notes: { en: '⭐ 2-hour fishing charter! Booked and confirmed.', zh: '⭐ 2小时钓鱼游船！已预订确认。' } },
+          { time: '5:30 PM', emoji: '🏊', name: { en: 'Heated pool session', zh: '加热泳池时间' }, type: 'free', cost: { en: 'Included', zh: '含在营地费用内' } },
         ],
       },
       {
